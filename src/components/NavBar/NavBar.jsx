@@ -7,9 +7,9 @@ function NavBar() {
             <div className='header'>
                 <h1>Frontera Living</h1>
                 <ul className='nav'>
-                    <li><a href="#">Sofas</a></li>
-                    <li><a href="#">Rinconeros</a></li>
-                    <li><a href="#">Colchones</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Ofertas</a></li>
                 </ul>
             </div>
         </>

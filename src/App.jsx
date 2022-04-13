@@ -1,18 +1,14 @@
 import './App.css';
+import Carousel from './components/Carousel/Carousel';
 import NavBar from './components/NavBar/NavBar';
 
 function App() {
-
-  function handleClick() {
-    console.log(`click`);
-  }
   return (
     <div className="App">
       <NavBar />
-      <p>My app</p>
-      <button onClick={handleClick}>Click</button>
+      <Carousel />
     </div>
   );
-}
+};
 
 export default App;
