@@ -7,4 +7,5 @@
     border: none;
     margin: 0 0 5px;
     box-shadow: 1px 1px 4px gray;
+    min-width: 30px;
 }
