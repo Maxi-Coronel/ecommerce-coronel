@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import Cards from '../Cards/Cards';
 import './ItemListContainer.css'
 
@@ -22,7 +22,7 @@ const ItemListContainer = (props) => {
 
     return (
         <>
-            <article><h3>{greeting}</h3></article>
+            <h3>{greeting}</h3>
             <section className='menu'>
                 {productos.map((item, index) =>
                     <Cards key={index} producto={item} />)}
