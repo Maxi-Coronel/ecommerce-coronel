@@ -3,18 +3,21 @@ import Button from '../Button/Button';
 import './Card.css'
 
 const Cards = (props) => {
+    const {producto} = props
+    const {nombre, img, precio} = producto;
+
     function handlerClick() {
-        console.log(`compraste ${props.nombre}`);
+        console.log(`compraste ${nombre}`);
     }
     return (
-        <div className='card'>
-            <img src={props.img} alt={props.nombre} />
+        <article className='card'>
+            <img src={img} alt={nombre} />
             <div>
-                <h3>{props.nombre}</h3>
-                <h4>{props.precio}</h4>
-                <Button function={handlerClick} nombre={"Compra!"}/>
+                <h3>{nombre}</h3>
+                <h4>{precio}</h4>
+                <Button functional={handlerClick} nombre={"Compra!"}/>
             </div>
-        </div>
+        </article>
     );
 };
 

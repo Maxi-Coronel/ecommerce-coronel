@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Carousel() {
+const Carousel = () => {
     return (
-        <>
+        <section>
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
@@ -24,7 +24,7 @@ function Carousel() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-        </>
+        </section>
     );
 };
 

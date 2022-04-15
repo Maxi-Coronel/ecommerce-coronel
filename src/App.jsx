@@ -2,14 +2,14 @@ import './App.css';
 import Carousel from './components/Carousel/Carousel';
 import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
-import Productos from './components/Productos/Productos';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Carousel />
-      <Productos />
+      <ItemListContainer greeting={'Esta va a ser mi tienda'} />
       <Footer />
     </div>
   );
