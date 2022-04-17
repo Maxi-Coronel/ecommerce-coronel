@@ -13,7 +13,7 @@ const Cards = (props) => {
                 <h3>{nombre}</h3>
                 <h4>{precio}</h4>
             </div>
-            <ItemCount producto={producto}  cart={props.setCart}/>
+            <ItemCount producto={producto} />
         </article>
     );
 };

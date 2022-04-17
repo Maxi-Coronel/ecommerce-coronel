@@ -11,20 +11,17 @@ const ItemCount = (props) => {
     function handlerCart() {
         console.log(producto);
         producto.quantity = producto.quantity + count;
-        props.setCart([producto])
     }
 
     function handlerAdd() {
         if (stock > count) {
             setCount(count+1)
-            console.log(count);
         }
     }
 
     function handlerSubtract() {
         if (count > 0) {
             setCount(count-1)
-            console.log(count);
         }
     }
 
