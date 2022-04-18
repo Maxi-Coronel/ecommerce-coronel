@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Button from '../Button/Button';
 import './ItemCount.css'
 
-const ItemCount = (props) => {
-    const {producto} = props
+const ItemCount = ({producto}) => {
     const {stock} = producto;
 
     const [count, setCount] = useState(0)

@@ -2,8 +2,7 @@ import React from 'react';
 import Cards from '../Cards/Cards';
 import './ItemListContainer.css'
 
-const ItemListContainer = (props) => {
-    const {greeting} = props
+const ItemListContainer = ({greeting}) => {
 
     const productos = [
         {id: "001",

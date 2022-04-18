@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Categories = (props) => {
-    const {categories} = props;
+const Categories = ({categories}) => {
     const {nombre, link} = categories;
     return (
         <li><a href={link}>{nombre}</a></li>

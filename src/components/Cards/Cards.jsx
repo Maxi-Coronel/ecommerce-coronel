@@ -2,8 +2,7 @@ import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import './Card.css'
 
-const Cards = (props) => {
-    const {producto} = props
+const Cards = ({producto}) => {
     const {nombre, img, precio} = producto;
 
     return (
