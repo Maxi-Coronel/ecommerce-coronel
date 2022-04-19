@@ -10,21 +10,15 @@ const ItemCount = ({producto}) => {
     function handlerCart() {
         console.log(producto);
         producto.quantity = producto.quantity + count;
-        if (count + producto.quantity > stock) {
-            setCount(stock - producto.quantity)
-        }
+        count + producto.quantity > stock && setCount(stock - producto.quantity)
     }
 
     function handlerAdd() {
-        if (stock > count+producto.quantity) {
-            setCount(count+1)
-        }
+        stock > count+producto.quantity && setCount(count+1)
     }
 
     function handlerSubtract() {
-        if (count > 0) {
-            setCount(count-1)
-        }
+       count > 0 && setCount(count-1)
     }
 
     return (
