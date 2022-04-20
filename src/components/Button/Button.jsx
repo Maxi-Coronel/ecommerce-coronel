@@ -1,10 +1,7 @@
 import React from 'react';
 import './Button.css'
 
-const Button = (props) => {
-
-    const {functional, nombre} = props
-
+const Button = ({functional, nombre}) => {
     return (
         <>
             <button className='button' onClick={functional}>{nombre}</button>
