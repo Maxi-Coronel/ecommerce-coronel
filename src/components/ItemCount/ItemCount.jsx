@@ -2,17 +2,14 @@ import React from 'react';
 import Button from '../Button/Button';
 import './ItemCount.css'
 
-const ItemCount = ({maximo, count, funcion, cantidad}) => {
+const ItemCount = ({maximo, cantidad, count, funcion}) => {
 
-    function handlerAdd() {
-        cantidad?
-        maximo > count + cantidad && funcion(count+1) :
-        maximo > count && funcion(count+1)
+    const handlerAdd = () => {
+        maximo > count + cantidad && funcion(count+1)
     }
 
-    function handlerSubtract() {
-       count > 1 && funcion(count-1)
-    }
+    const handlerSubtract = () =>
+        count > 1 && funcion(count-1);
 
     return (
         <div>
