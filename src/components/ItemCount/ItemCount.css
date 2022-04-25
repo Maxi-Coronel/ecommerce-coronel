@@ -3,3 +3,13 @@
         justify-content: space-around;
     margin: 0 20%;
 }
+
+.stock{
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+.stock p{
+    margin: 0;
+    text-align: center;
+}

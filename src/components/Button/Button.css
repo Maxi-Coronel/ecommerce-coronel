@@ -1,11 +1,17 @@
 .button{
+    margin: 0 auto 5px;
     padding: 5px;
     background-color: #3483fa;
     color: white;
     font-weight: bolder;
     border-radius: 7px;
     border: none;
-    margin: 0 0 5px;
-    box-shadow: 1px 1px 4px gray;
+    box-shadow: 1px 1px 4px rgb(107, 107, 107);
     min-width: 30px;
+    display: flex;
+        justify-content: center;
+}
+
+.button:hover{
+    background-color: #0066ff;
 }
