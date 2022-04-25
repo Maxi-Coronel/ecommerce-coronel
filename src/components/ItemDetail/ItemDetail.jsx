@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 const ItemDetail = ({item}) => {
     const [count, setCount] = useState(1)
 
-    const handlerCount = a => setCount(a)
+    const handlerCount = newValue => setCount(newValue)
 
     const handlerCart = () => {
         console.log(item);

@@ -14,7 +14,7 @@ const Item = ({producto}) => {
         setPrecioQuotas(countQuotas > 1 ? (((precio * (0.05 * countQuotas) + precio) / countQuotas) * count) : precio * count)
       },[countQuotas, count]);
 
-    const handlerCount = a => setCount(a)
+    const handlerCount = newValue => setCount(newValue)
 
     const handlerQuotas = () => {
         setCountQuotas(document.getElementById(id).value)

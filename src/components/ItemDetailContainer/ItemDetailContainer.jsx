@@ -5,7 +5,7 @@ import Products from '../Products/Products';
 const ItemDetailContainer = () => {
     const [item, setItem] = useState([])
     const [loading, setLoading] = useState(true)
-    const x = useState(Math.floor(Math.random() * (4 - 0)) + 0)
+    const numberX = useState(Math.floor(Math.random() * (4 - 0)) + 0)
 
     function traeProductos() {
         const myPromise = new Promise((resolve, reject) => {
@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
     
     useEffect(() => {
         traeProductos()
-            .then(res => setItem(res[x[0]]))
+            .then(res => setItem(res[numberX[0]]))
             .catch(err => console.log(`error en promise`))
       },[]);
 
