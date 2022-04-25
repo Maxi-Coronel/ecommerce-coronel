@@ -7,17 +7,17 @@ const Item = ({producto}) => {
     const {id, nombre, img, precio, stock, quantity} = producto;
 
     const [count, setCount] = useState(1)
-    const [countCuotas, setCountCuotas] = useState(1)
-    const [precioCuotas, setPrecioCuotas] = useState(precio)
+    const [countQuotas, setCountQuotas] = useState(1)
+    const [precioQuotas, setPrecioQuotas] = useState(precio)
 
     useEffect(() => {
-        setPrecioCuotas(countCuotas > 1 ? (((precio * (0.05 * countCuotas) + precio) / countCuotas) * count) : precio)
-      },[countCuotas, count]);
+        setPrecioQuotas(countQuotas > 1 ? (((precio * (0.05 * countQuotas) + precio) / countQuotas) * count) : precio * count)
+      },[countQuotas, count]);
 
     const handlerCount = a => setCount(a)
 
-    const handlerCuotas = () => {
-        setCountCuotas(document.getElementById(id).value)
+    const handlerQuotas = () => {
+        setCountQuotas(document.getElementById(id).value)
     }
 
     const handlerCart = () => {
@@ -32,18 +32,18 @@ const Item = ({producto}) => {
             <div>
                 <h3>{nombre}</h3>
                 <h4>${precio}</h4>
-                <div>
-                    <select name="numCoutas" id={id} onChange={handlerCuotas}>
+                <div className='cuotas'>
+                    <select name="numCoutas" id={id} onChange={handlerQuotas}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="6">6</option>
                         <option value="12">12</option>
                         <option value="18">18</option>
                     </select>
-                    <p>cuotas de ${precioCuotas.toFixed(2)}</p>
+                    <p> cuotas de ${precioQuotas.toFixed(2)}</p>
                 </div>
             </div>
-            <ItemCount maximo={stock} cantidad={quantity} count={count} funcion={handlerCount} />
+            <ItemCount max={stock} quantity={quantity} count={count} handlerCount={handlerCount} />
             <Button functional={handlerCart} nombre={"Agregar al carrito"}/>
         </article>
     );

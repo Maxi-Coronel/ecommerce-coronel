@@ -2,17 +2,20 @@ import React from 'react';
 import Button from '../Button/Button';
 import './ItemCount.css'
 
-const ItemCount = ({maximo, cantidad, count, funcion}) => {
+const ItemCount = ({max, quantity, count, handlerCount}) => {
 
     const handlerAdd = () => {
-        maximo > count + cantidad && funcion(count+1)
+        max > count + quantity && handlerCount(count+1)
     }
 
     const handlerSubtract = () =>
-        count > 1 && funcion(count-1);
+        count > 1 && handlerCount(count-1);
 
     return (
         <div>
+        <div className='stock'>
+            <p>Disponible:{max}</p>
+        </div>
             <div className='flex'>
                 <Button functional={handlerSubtract} nombre={"-"}/>
                 <h3>{count}</h3>
