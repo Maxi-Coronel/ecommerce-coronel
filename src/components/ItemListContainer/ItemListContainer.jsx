@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList';
-import Productos from '../Productos/Productos';
+import Products from '../Products/Products';
 import './ItemListContainer.css'
 
 const ItemListContainer = () => {
@@ -9,7 +9,7 @@ const ItemListContainer = () => {
     function traeProductos() {
         const myPromise = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(Productos)
+                resolve(Products)
             }, 2000)
         });
         return myPromise
