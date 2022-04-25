@@ -2,7 +2,6 @@
     font-family:  sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: rgb(233, 233, 233);
     display: flex;
         justify-content: space-between;   
 }
