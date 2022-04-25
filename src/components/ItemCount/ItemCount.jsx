@@ -4,11 +4,11 @@ import './ItemCount.css'
 
 const ItemCount = ({max, quantity, count, handlerCount}) => {
 
-    const handlerAdd = () => {
+    const onAdd = () => {
         max > count + quantity && handlerCount(count+1)
     }
 
-    const handlerSubtract = () =>
+    const onSubtract = () =>
         count > 1 && handlerCount(count-1);
 
     return (
@@ -17,9 +17,9 @@ const ItemCount = ({max, quantity, count, handlerCount}) => {
             <p>Disponible:{max}</p>
         </div>
             <div className='flex'>
-                <Button functional={handlerSubtract} nombre={"-"}/>
+                <Button functional={onSubtract} nombre={"-"}/>
                 <h3>{count}</h3>
-                <Button functional={handlerAdd} nombre={"+"}/>
+                <Button functional={onAdd} nombre={"+"}/>
             </div>
         </div>
     );
