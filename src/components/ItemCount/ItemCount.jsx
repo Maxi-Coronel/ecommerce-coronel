@@ -2,13 +2,13 @@ import React from 'react';
 import Button from '../Button/Button';
 import './ItemCount.css'
 
-const ItemCount = ({max, quantity, count, handlerCount}) => {
+const ItemCount = ({max, quantity, count, handlerCount, onAdd}) => {
 
-    const onAdd = () => {
+    const handlerAdd = () => {
         max > count + quantity && handlerCount(count+1)
     }
 
-    const onSubtract = () =>
+    const handlerSubtract = () =>
         count > 1 && handlerCount(count-1);
 
     return (
@@ -17,10 +17,11 @@ const ItemCount = ({max, quantity, count, handlerCount}) => {
             <p>Disponible:{max}</p>
         </div>
             <div className='flex'>
-                <Button functional={onSubtract} nombre={"-"}/>
+                <Button functional={handlerSubtract} nombre={"-"}/>
                 <h3>{count}</h3>
-                <Button functional={onAdd} nombre={"+"}/>
+                <Button functional={handlerAdd} nombre={"+"}/>
             </div>
+            <Button functional={onAdd} nombre="Agregar al carrito" />
         </div>
     );
 };

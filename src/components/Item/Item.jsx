@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Button from '../Button/Button';
 import ItemCount from '../ItemCount/ItemCount';
 import './Item.css'
 
@@ -21,9 +20,9 @@ const Item = ({producto}) => {
     }
 
     const handlerCart = () => {
-        console.log(producto);
         producto.quantity = producto.quantity + count;
         count + producto.quantity > producto.stock && setCount(producto.stock - producto.quantity)
+        alert(`Tienes ${producto.quantity} ${producto.nombre} en el carrito`)
     }
 
     return (
@@ -43,8 +42,7 @@ const Item = ({producto}) => {
                     <p> cuotas de ${precioQuotas.toFixed(2)}</p>
                 </div>
             </div>
-            <ItemCount max={stock} quantity={quantity} count={count} handlerCount={handlerCount} />
-            <Button functional={handlerCart} nombre={"Agregar al carrito"}/>
+            <ItemCount max={stock} quantity={quantity} count={count} handlerCount={handlerCount} onAdd={handlerCart} />
         </article>
     );
 };
