@@ -2,8 +2,8 @@ import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import './Item.css'
 
-const Item = ({producto}) => {
-    const {id, title, description, pictureUrl, price, stock} = producto;
+const Item = ({item}) => {
+    const {id, title, description, pictureUrl, price, stock} = item;
 
     const handlerCart = (count) => {
         alert(`Agregaste ${count} ${title} al carrito`)
