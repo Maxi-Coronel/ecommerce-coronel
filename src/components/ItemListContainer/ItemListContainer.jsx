@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import ItemList from '../ItemList/ItemList';
-import Products from '../Products/Products';
+import ItemList from '../ItemList/ItemList';/* 
+import Products from '../Products/Products'; */
 import './ItemListContainer.css'
+import getData from '../../Services/getData';
 
 const ItemListContainer = () => {
     const [item, setItem] = useState([])
-
-    function traeProductos() {
-        const myPromise = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(Products)
-            }, 2000)
-        });
-        return myPromise
-    };
     
     useEffect(() => {
-        traeProductos()
+        getData
             .then(res => setItem(res))
             .catch(err => console.log(`error en promise`))
       },[]);
