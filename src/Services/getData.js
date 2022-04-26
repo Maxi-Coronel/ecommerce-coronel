@@ -33,4 +33,10 @@ const Products = [
     quantity: 0}
 ];
 
-export default Products;
+const getData = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve(Products)
+    }, 2000)
+});
+
+export default getData
