@@ -1,0 +1,15 @@
+.item-detail{
+    display: flex;
+    margin: 5%;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.item-detail div{
+    margin: 3%;
+}
+
+.item-detail img{
+    margin: 3% 0 3% 3%;
+    border-radius: 10px;
+}
