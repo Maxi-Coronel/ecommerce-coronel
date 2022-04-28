@@ -5,18 +5,17 @@ import './ItemListContainer.css'
 import getData from '../../Services/getData';
 
 const ItemListContainer = () => {
-    const [item, setItem] = useState([])
+    const [items, setItems] = useState([])
     
     useEffect(() => {
         getData
-            .then(res => setItem(res))
+            .then(res => setItems(res))
             .catch(err => console.log(`error en promise`))
       },[]);
 
-
     return (
         <>
-            <ItemList item={item}/>
+            <ItemList items={items}/>
         </>
     );
 };

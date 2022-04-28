@@ -6,12 +6,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(initial)
 
+    console.log(count)
+
     const handlerAdd = () => {
         stock > count && setCount(count+1)
     }
 
     const handlerSubtract = () =>
-        count > 1 && setCount(count-1);
+        count > 1 && setCount(count-1)
 
     return (
         <div>
