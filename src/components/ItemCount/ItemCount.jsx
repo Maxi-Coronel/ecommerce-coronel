@@ -6,8 +6,6 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(initial)
 
-    console.log(count)
-
     const handlerAdd = () => {
         stock > count && setCount(count+1)
     }
@@ -16,16 +14,16 @@ const ItemCount = ({stock, initial, onAdd}) => {
         count > 1 && setCount(count-1)
 
     return (
-        <div>
-        <div className='stock'>
-            <p>Disponible:{stock}</p>
-        </div>
-            <div className='flex'>
-                <Button functional={handlerSubtract} nombre={"-"}/>
-                <h3>{count}</h3>
-                <Button functional={handlerAdd} nombre={"+"}/>
+        <div className='item-count'>
+            <div className='stock'>
+                <p>Disponible:{stock}</p>
             </div>
-            <Button functional={() => onAdd(count)} nombre="Agregar al carrito" />
+            <div className='count'>
+                <Button functional={handlerSubtract} content={"-"}/>
+                <h3>{count}</h3>
+                <Button functional={handlerAdd} content={"+"}/>
+            </div>
+            <Button functional={() => onAdd(count)} content="Agregar al carrito" />
         </div>
     );
 };

@@ -1,7 +1,16 @@
-.flex{
+.item-count{
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+.count{
     display: flex;
         justify-content: space-around;
+        align-items: center;
     margin: 0 20%;
+    width: 200px;
 }
 
 .stock{

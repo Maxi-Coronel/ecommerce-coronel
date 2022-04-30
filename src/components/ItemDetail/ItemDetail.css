@@ -1,15 +1,19 @@
 .item-detail{
     display: flex;
-    margin: 5%;
-    border: 1px solid black;
+        flex-wrap: wrap;
+}
+
+.item-detail-div{
+    margin: 2%;
+    width: 32%;
+    min-width: 250px;
+}
+
+.item-detail-img{
+    width: 60%;
+    box-sizing: border-box;
+    object-fit: contain;
+    height: auto;
+    margin: 2%;
     border-radius: 15px;
-}
-
-.item-detail div{
-    margin: 3%;
-}
-
-.item-detail img{
-    margin: 3% 0 3% 3%;
-    border-radius: 10px;
 }

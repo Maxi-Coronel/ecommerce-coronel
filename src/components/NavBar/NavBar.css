@@ -22,3 +22,7 @@ li img{
 b{
     color: red;
 }
+
+.link-active{
+    font-weight: bold;
+}

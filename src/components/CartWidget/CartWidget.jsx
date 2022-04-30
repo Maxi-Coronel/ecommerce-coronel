@@ -3,7 +3,7 @@ import React from 'react';
 const CartWidget = () => {
     return (
         <>
-            <img src="https://th.bing.com/th/id/R.4f5f21bf8bd275fbaf69e94040be9fd3?rik=RRM1um9d0LbSKw&riu=http%3a%2f%2fimage.flaticon.com%2ficons%2fpng%2f512%2f4%2f4295.png&ehk=wa4cN4IoO135%2fbJ94EzwDBsMeyzFaQmCrNlnbGs%2bQ%2fg%3d&risl=&pid=ImgRaw&r=0" alt="carrito" />
+            <img src="https://images.vexels.com/media/users/3/200060/isolated/preview/e39eb7217c7b5157d2c9154564d76598-icono-de-carro-de-compras-rosa-by-vexels.png" alt="carrito" />
         </>
     );
 };

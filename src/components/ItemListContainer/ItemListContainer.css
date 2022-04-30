@@ -4,3 +4,8 @@
         justify-content: space-around;
         margin: 15px 0;
 }
+
+.item-list-container{
+    display: flex;
+        justify-content: center;
+}

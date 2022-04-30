@@ -1,9 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Categories = ({categories}) => {
-    const {nombre, link} = categories;
+    const {content, link} = categories;
     return (
-        <li><a href={link}>{nombre}</a></li>
+        <>
+        <li><NavLink to={link} className={(nav) => nav.isActive ? 'link-active' : ''}>{content}</NavLink></li>
+        </>
     );
 };
 
