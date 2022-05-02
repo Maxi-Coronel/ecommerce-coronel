@@ -12,10 +12,10 @@ const Products = [{
     id: "002",
     pictureUrl: "http://fronteraliving.com/imagenes/productos/gfr-65-673404.jpg",
     title: "Rinconero Zaro",
-    category: "rinconero",
     price: 130000,
     description: "Sofá BOCK con apoya cabeza reclinable en 6 posiciones, estructura y patas en hierro negro, asiento de placa soft alta densidad y 95cm de profundidad.",
-    measure: "2.20 x 0.95 mts",
+    measure: "3.10 x 2.05 mts",
+    category: "rinconero",
     stock: 7,
     quantity: 0
 },{
@@ -24,7 +24,7 @@ const Products = [{
     title: "Rinconero Genesis",
     price: 160000,
     description: "Sofá BOCK con apoya cabeza reclinable en 6 posiciones, estructura y patas en hierro negro, asiento de placa soft alta densidad y 95cm de profundidad.",
-    measure: "2.20 x 0.95 mts",
+    measure: "4.43 x 2.47 mts",
     category: "rinconero",
     stock: 8,
     quantity: 0
