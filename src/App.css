@@ -14,3 +14,7 @@ a:link{
 a{
     color: black;
 }
+
+a:hover{
+    color: black;
+}

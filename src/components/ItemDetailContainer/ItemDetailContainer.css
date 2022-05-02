@@ -1,7 +1,6 @@
 .item-detail-container{
     display: flex;
         justify-content: center;
-    background-color: white;
     margin: 5%;
     border-radius: 15px;
     width: 90%;

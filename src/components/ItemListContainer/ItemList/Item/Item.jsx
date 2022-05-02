@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ItemCount from '../ItemCount/ItemCount';
+import ItemCount from '../../../ItemCount/ItemCount';
 import './Item.css';
 
 const Item = ({ item }) => {
@@ -11,14 +11,16 @@ const Item = ({ item }) => {
     }
 
     return (
-        <Link to={`/item/${id}`} className='card'>
-            <img src={pictureUrl} alt={title} className='imgItem' />
-            <div>
-                <h3>{title}</h3>
-                <h4>${price}</h4>
-            </div>
+        <div className='card'>
+            <Link to={`/item/${id}`} className='card-link'>
+                <img src={pictureUrl} alt={title} className='card-img' />
+                <div>
+                    <h3>{title}</h3>
+                    <h4>${price}</h4>
+                </div>
+            </Link>
             <ItemCount stock={stock} initial={1} onAdd={handlerCart} />
-        </Link>
+        </div>
     );
 };
 

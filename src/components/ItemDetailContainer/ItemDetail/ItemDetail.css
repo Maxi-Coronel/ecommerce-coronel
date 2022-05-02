@@ -1,6 +1,7 @@
 .item-detail{
     display: flex;
         flex-wrap: wrap;
+    background-color: white;
 }
 
 .item-detail-div{

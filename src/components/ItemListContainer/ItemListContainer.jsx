@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import ItemList from '../ItemList/ItemList';
-import './ItemListContainer.css';
+import ItemList from './ItemList/ItemList';
 import getData from '../../Services/getData';
 import { useParams } from 'react-router-dom';
+import './ItemListContainer.css';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState();
