@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import getData from '../../Services/getData'
+import Loading from '../Loading/Loading';
 import ItemDetail from './ItemDetail/ItemDetail';
 import './ItemDetailContainer.css'
 
@@ -15,8 +16,9 @@ const ItemDetailContainer = () => {
             getData
                 .then(res => {
                     setItem(res.find(item => item.id === id));
-                    setLoading(false)
                 })
+                .catch(err => alert(`error en promise`))
+                .finally(() => setLoading(false))
         },2000)
     }
 
@@ -26,11 +28,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className='item-detail-container'>
-            {
-                !loading ?
-                <ItemDetail item={item}/> :
-                <img src='https://gifimage.net/wp-content/uploads/2017/10/cargando-gif-sin-fondo-3.gif' alt='cargando'/>
-            }
+            {!loading ? <ItemDetail item={item}/> : <Loading />}
         </div>
     );
 };

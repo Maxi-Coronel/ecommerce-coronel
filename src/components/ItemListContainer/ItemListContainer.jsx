@@ -1,32 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList/ItemList';
 import getData from '../../Services/getData';
+import Loading from '../Loading/Loading';
 import { useParams } from 'react-router-dom';
 import './ItemListContainer.css';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState();
     const [loading, setLoading] = useState(true);
-    const { id } = useParams();
+    const { categoryId } = useParams();
     
     useEffect(() => {
         setLoading(true);
         setTimeout(() => {
             getData
                 .then(res => {
-                    setItems(id? res.filter(e => e.category === id) : res);
-                    setLoading(false)
+                    setItems(categoryId? res.filter(e => e.category === categoryId) : res);
                 })
-                .catch(err => console.log(`error en promise`))
+                .catch(err => alert(`error en promise`))
+                .finally(() => setLoading(false))
         },2000);
-      },[id]);
+      },[categoryId]);
 
     return (
         <div className='item-list-container'>
-            {!loading ?
-                <ItemList items={items}/> :
-                <img src='https://gifimage.net/wp-content/uploads/2017/10/cargando-gif-sin-fondo-3.gif' alt='cargando'/>
-            }
+            {!loading ? <ItemList items={items}/> : <Loading />}
         </div>
     );
 };
