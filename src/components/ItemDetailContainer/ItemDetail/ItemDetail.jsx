@@ -6,11 +6,11 @@ import './ItemDetail.css'
 
 const ItemDetail = ({ item }) => {
     const {title, price, pictureUrl, description, measure, stock} = item
-    const [buttonCart, setButtonCart] = useState(false)
+    const [quantityToAdd, setquantityToAdd] = useState(0)
     
     const handlerCart = (count) => {
         alert(`Agregaste ${count} ${title} al carrito`);
-        setButtonCart(true);
+        setquantityToAdd(count);
     }
 
     return (
@@ -23,7 +23,7 @@ const ItemDetail = ({ item }) => {
                 <p>{description}</p>
                 <h4>Medidas</h4>
                 <p>{measure}</p>
-                {!buttonCart ? 
+                {quantityToAdd<1 ? 
                     <ItemCount stock={stock} initial={1} onAdd={handlerCart}/> : 
                     <Link to={"/cart"}><Button content="Terminar mi compra"/></Link>
                 }
