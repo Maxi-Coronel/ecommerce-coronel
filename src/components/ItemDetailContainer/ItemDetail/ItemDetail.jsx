@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Button from '../../Button/Button';
 import ItemCount from '../../ItemCount/ItemCount';
 import './ItemDetail.css'
 
 const ItemDetail = ({ item }) => {
     const {title, price, pictureUrl, description, measure, stock} = item
+    const [buttonCart, setButtonCart] = useState(false)
     
     const handlerCart = (count) => {
-        alert(`Agregaste ${count} ${title} al carrito`)
+        alert(`Agregaste ${count} ${title} al carrito`);
+        setButtonCart(true);
     }
 
     return (
@@ -19,7 +23,10 @@ const ItemDetail = ({ item }) => {
                 <p>{description}</p>
                 <h4>Medidas</h4>
                 <p>{measure}</p>
-                <ItemCount stock={stock} initial={1} onAdd={handlerCart}/>
+                {!buttonCart ? 
+                    <ItemCount stock={stock} initial={1} onAdd={handlerCart}/> : 
+                    <Link to={"/cart"}><Button content="Terminar mi compra"/></Link>
+                }
             </div>
         </div>
     );
