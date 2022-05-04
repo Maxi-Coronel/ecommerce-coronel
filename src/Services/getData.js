@@ -1,9 +1,9 @@
 const Products = [{
     id: "001",
-    pictureUrl: "https://cdn.shopify.com/s/files/1/0049/0330/5265/products/CaptureOneSession6418_800x.jpg?v=1593293476",
-    title: "Sofa Bock",
+    pictureUrl: "http://fronteraliving.com/imagenes/productos/gfr-140-701048.jpg",
+    title: "Sofa Verona",
     price:250000,
-    description: "Sofá BOCK con apoya cabeza reclinable en 6 posiciones, estructura y patas en hierro negro, asiento de placa soft alta densidad y 95cm de profundidad.",
+    description: "Sofá Verona con apoya cabeza reclinable en 6 posiciones, estructura y patas en hierro negro, asiento de placa soft alta densidad y 95cm de profundidad.",
     measure: "2.20 x 0.95 mts",
     category: "sofa",
     stock: 5,
