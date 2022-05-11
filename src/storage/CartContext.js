@@ -19,18 +19,18 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const removeItem = id => {
-        productsList.find((i) => i.id === id).quantityCart = 0
-        setProductsList(productsList.filter(i => i.id !== id))
+        productsList.find(item => item.id === id).quantityCart = 0
+        setProductsList(productsList.filter(item => item.id !== id))
     }
 
     const isInCart = (product,count) => {
-        productsList.find((i) => i.id === product.id)
+        productsList.find(item => item.id === product.id)
         ? product.quantityCart = product.quantityCart + count
         : addItem(product, count)
     }
 
     const clear = () => {
-        productsList.map(e => e.quantityCart = 0)
+        productsList.map(item => item.quantityCart = 0)
         setProductsList([])
     }
 
