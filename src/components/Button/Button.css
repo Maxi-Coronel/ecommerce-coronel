@@ -15,3 +15,21 @@
 .button:hover{
     background-color: #0066ff;
 }
+
+.close{
+    margin: 0 auto 5px;
+    padding: 5px;
+    background-color: #ff0000;
+    color: white;
+    font-weight: bolder;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 1px 1px 4px rgb(107, 107, 107);
+    min-width: 30px;
+    display: flex;
+        justify-content: center;
+}
+
+.close:hover{
+    background-color: #990000;
+}

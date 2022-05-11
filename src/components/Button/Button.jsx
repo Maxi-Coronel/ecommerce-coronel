@@ -1,10 +1,10 @@
 import React from 'react';
 import './Button.css'
 
-const Button = ({functional, content}) => {
+const Button = ({ functional, content, styles }) => {
     return (
         <>
-            <button className='button' onClick={functional}>{content}</button>
+            <button className={styles} onClick={functional}>{content}</button>
         </>
     );
 };
