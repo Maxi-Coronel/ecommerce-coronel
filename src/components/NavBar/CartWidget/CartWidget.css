@@ -1,0 +1,19 @@
+.cart-widget{
+    display: flex;
+}
+.cart-widget img{
+    width: 70px;
+}
+.quantity-cart{
+    display: flex;
+        justify-content: center;
+        align-items: center;
+    background-color: rgb(137, 186, 250);
+    color: white;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+        right: 23px;
+}

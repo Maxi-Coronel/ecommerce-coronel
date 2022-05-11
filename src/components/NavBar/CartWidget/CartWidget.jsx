@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import CartContext from '../../../storage/CartContext';
+import './CartWidget.css'
 
 const CartWidget = () => {
+    const cartCtx = useContext(CartContext)
+    const quantityItem = cartCtx.products.map(item => item.quantityCart).reduce((a,b) => a+b,0);
+
     return (
-        <>
-            <img src="https://images.vexels.com/media/users/3/200060/isolated/preview/e39eb7217c7b5157d2c9154564d76598-icono-de-carro-de-compras-rosa-by-vexels.png" alt="carrito" />
-        </>
+        quantityItem>0 &&
+            <Link to={'/cart'} className='cart-widget'>
+                <img src="https://www.paypalobjects.com/webstatic/es_MX/mktg/express_checkout/carrito_ico.png" alt="carrito" />
+                <p className='quantity-cart'>{quantityItem}</p>
+            </Link>
     );
 };
 
