@@ -9,6 +9,8 @@
 .nav{
     list-style-type: none;
     display: flex;
+        align-items: center;
+        justify-content: center;
 }
 
 .nav li{
@@ -19,7 +21,7 @@ li img{
     width: 30px;
 }
 
-b{
+.header b{
     color: red;
 }
 
