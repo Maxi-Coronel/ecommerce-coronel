@@ -19,11 +19,11 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 <p>Disponible:{stock}</p>
             </div>
             <div className='count'>
-                <Button functional={handlerSubtract} content={"-"}/>
+                <Button functional={handlerSubtract} content='-' styles='button'/>
                 <h3>{count}</h3>
-                <Button functional={handlerAdd} content={"+"}/>
+                <Button functional={handlerAdd} content='+' styles='button'/>
             </div>
-            <Button functional={() => onAdd(count)} content="Agregar al carrito" />
+            <Button functional={() => onAdd(count)} content='Agregar al carrito' styles='button'/>
         </div>
     );
 };
