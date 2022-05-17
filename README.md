@@ -75,6 +75,8 @@ Los estilos CSS en su gran mayoria son de desarrollo propio, aunque esta linkead
 - jquery
     -
 - popper.js
+    -
+- firebase
 
 # Introducción a Create React App
 

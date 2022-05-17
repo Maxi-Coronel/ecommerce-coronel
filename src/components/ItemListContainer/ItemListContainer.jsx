@@ -3,6 +3,7 @@ import ItemList from './ItemList/ItemList';
 import getData from '../../Services/getData';
 import Loading from '../Loading/Loading';
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore, limit, query, where } from 'firebase/firestore'
 import './ItemListContainer.css';
 
 const ItemListContainer = () => {
@@ -11,6 +12,21 @@ const ItemListContainer = () => {
     const { categoryId } = useParams();
     
     useEffect(() => {
+
+        /* const db = getFirestore();
+        const itemsCollections = collection(db, 'products');
+        const q = query(
+            itemsCollections,
+            where('title', '==', 'Sofa Verona'),
+            limit(1)
+        )
+        getDocs(q)
+            .then(snapshot => 
+                setItems(snapshot.docs.map(doc => {
+                    return {...doc.data(), id: doc.id}
+                }))
+            )
+            .finally(() => setLoading(false)) */
         setLoading(true);
         setTimeout(() => {
             getData
@@ -19,7 +35,7 @@ const ItemListContainer = () => {
                 })
                 .catch(err => alert(`error en promise`))
                 .finally(() => setLoading(false))
-        },2000);
+        },500);
       },[categoryId]);
 
     return (
