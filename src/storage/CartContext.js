@@ -5,7 +5,9 @@ const CartContext = createContext({
     addItem: () => {},
     removeItem: () => {},
     isInCart: () => {},
-    clear: () => {}
+    clear: () => {},
+    quantityItem: () => {},
+    totalPrice: () => {}
 });
 
 export const CartContextProvider = ({ children }) => {
@@ -17,7 +19,7 @@ export const CartContextProvider = ({ children }) => {
         ? product.quantityCart = product.quantityCart + count
         : alert('no hay suficiente stock')
     }
-
+    
     const removeItem = id => {
         productsList.find(item => item.id === id).quantityCart = 0
         setProductsList(productsList.filter(item => item.id !== id))
@@ -25,7 +27,7 @@ export const CartContextProvider = ({ children }) => {
 
     const isInCart = (product,count) => {
         productsList.find(item => item.id === product.id)
-        ? product.quantityCart = product.quantityCart + count
+        ? setProductsList(productsList.map(p => p.id === product.id ? {...p, quantityCart: p.quantityCart + count} : p))
         : addItem(product, count)
     }
 
@@ -35,11 +37,11 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const totalPrice = () => {
-        return productsList.map(item =>item).reduce((total, item) => total + item.quantityCart * item.price, 0)
+       return productsList.map(item => item).reduce((total, item) => total + item.quantityCart * item.price, 0)
     }
     
     const quantityItem = () => {
-        return productsList.map(item => item.quantityCart).reduce((total, item) => total + item, 0);
+        return productsList.map(item => item.quantityCart).reduce((total, item) => total + item, 0)
     }
 
     return(

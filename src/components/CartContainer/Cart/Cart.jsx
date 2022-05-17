@@ -7,20 +7,28 @@ import './Cart.css'
 const Cart = ({ item }) => {
     const {id, title, pictureUrl, price, stock} = item;
 
-    const [quantity, setQuantity] = useState(item.quantityCart);
     const cartCtx = useContext (CartContext);
+    const [quantity, setQuantity] = useState(cartCtx?.products.find(product => product.id === item.id).quantityCart);
     const subtotal = price * quantity
 
     const handlerSubtract = () => {
-        quantity > 1 && setQuantity(quantity - 1)
+        if (quantity > 1) {
+            setQuantity(quantity - 1)
+            cartCtx.isInCart(item, (-1))
+            cartCtx.totalPrice();
+        }
     }
 
     const handlerAdd = () => {
-        stock > quantity && setQuantity(quantity + 1)
+        if (stock > quantity) {
+            setQuantity(quantity + 1)
+            cartCtx.isInCart(item, 1)
+            cartCtx.totalPrice();
+        }
     }
     
     useEffect(() => {
-        item.quantityCart = quantity
+        setQuantity(cartCtx.products.find(product => product.id === item.id).quantityCart)
     },[quantity])
     
     return (
