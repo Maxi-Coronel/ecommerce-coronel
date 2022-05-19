@@ -6,7 +6,7 @@ import ItemCount from '../../ItemCount/ItemCount';
 import './ItemDetail.css'
 
 const ItemDetail = ({ item }) => {
-    const {title, price, pictureUrl, description, measure, stock} = item
+    const {id, title, price, pictureUrl, description, measure, stock} = item
 
     const cartCtx = useContext(CartContext)
     const [irCart, setIrCart] = useState(false)
@@ -30,7 +30,7 @@ const ItemDetail = ({ item }) => {
                 <p>{measure}</p>
                 {!irCart
                     ? <ItemCount stock={stock} initial={1} onAdd={handlerCart}/>
-                    : <Link to={"/cart"}><Button content={`Terminar mi compra ()`} styles={'button'}/></Link>
+                    : <Link to={"/cart"}><Button content={`Terminar mi compra (${cartCtx.products.find(item => item.id === id).quantity})`} styles={'button'}/></Link>
                 }
             </div>
         </div>
