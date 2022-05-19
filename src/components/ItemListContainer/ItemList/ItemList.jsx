@@ -4,7 +4,7 @@ import Item from './Item/Item';
 const ItemList = ({ items }) => {
     return (
         <div className='menu'>
-            {items.map((item) => <Item key={item.id} item={item}/>)}
+            {items.map((item, key) => <Item key={key} item={item}/>)}
         </div>
     );
 };

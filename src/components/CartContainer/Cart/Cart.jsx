@@ -15,14 +15,12 @@ const Cart = ({ item }) => {
     }
 
     const handlerAdd = () => {
-        if (stock >= quantity) {
-            cartCtx.addItem(item, 1)
-        }
+        stock >= quantity && cartCtx.addItem(item, 1)
     }
     
     return (
         <div className='cart-item'>
-            <Link to={`/item/${id}`} className='div-img'>
+            <Link to={`/item/${title}`} className='div-img'>
                 <img src={pictureUrl} alt={title} className='img-cart' />
             </Link>
             <p className='p-cart'>{title}</p>
