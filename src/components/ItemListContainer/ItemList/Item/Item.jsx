@@ -20,7 +20,7 @@ const Item = ({ item }) => {
 
     return (
         <div className='card'>
-            <Link to={`/item/${id}`} className='card-link'>
+            <Link to={`/item/${title}`} className='card-link'>
                 <img src={pictureUrl} alt={title} className='card-img' />
                 <div>
                     <h3>{title}</h3>

@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import getData from '../../Services/getData'
 import Loading from '../Loading/Loading';
 import ItemDetail from './ItemDetail/ItemDetail';
+import { prueba } from '../../Services/firebase';
 import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState()
     const [loading, setLoading] = useState(true)
-    const {id} = useParams()
+    const {title} = useParams()
 
     const getItem = () => {
         setTimeout(() => {
-            getData
+            prueba()
                 .then(res => {
-                    setItem(res.find(item => item.id === id));
+                    setItem(res.find(item => item.title === title));
                 })
                 .catch(err => alert(`error en promise`))
                 .finally(() => setLoading(false))
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         getItem()
-    },[])
+    },[title])
 
     return (
         <div className='item-detail-container'>
