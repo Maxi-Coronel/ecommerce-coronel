@@ -1,35 +1,24 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../../../storage/CartContext';
 import Button from '../../Button/Button';
 import './Cart.css'
 
 const Cart = ({ item }) => {
-    const {id, title, pictureUrl, price, stock} = item;
+    const {id, title, pictureUrl, price, stock, quantity} = item;
 
     const cartCtx = useContext (CartContext);
-    const [quantity, setQuantity] = useState(cartCtx?.products.find(product => product.id === item.id).quantityCart);
     const subtotal = price * quantity
 
     const handlerSubtract = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1)
-            cartCtx.isInCart(item, (-1))
-            cartCtx.totalPrice();
-        }
+        quantity > 1 && cartCtx.addItem(item, (-1))
     }
 
     const handlerAdd = () => {
-        if (stock > quantity) {
-            setQuantity(quantity + 1)
-            cartCtx.isInCart(item, 1)
-            cartCtx.totalPrice();
+        if (stock >= quantity) {
+            cartCtx.addItem(item, 1)
         }
     }
-    
-    useEffect(() => {
-        setQuantity(cartCtx.products.find(product => product.id === item.id).quantityCart)
-    },[quantity])
     
     return (
         <div className='cart-item'>

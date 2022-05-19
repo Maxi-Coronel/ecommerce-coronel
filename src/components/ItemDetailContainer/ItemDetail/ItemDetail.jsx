@@ -6,16 +6,15 @@ import ItemCount from '../../ItemCount/ItemCount';
 import './ItemDetail.css'
 
 const ItemDetail = ({ item }) => {
-    const {title, price, pictureUrl, description, measure, stock, quantityCart} = item
-    const [quantityToAdd, setquantityToAdd] = useState(0)
+    const {title, price, pictureUrl, description, measure, stock} = item
+
     const cartCtx = useContext(CartContext)
+    const [irCart, setIrCart] = useState(false)
     
     const handlerCart = (count) => {
-        if (stock >= quantityCart + count) {
-                setquantityToAdd(count)
-                cartCtx.isInCart(item, count)
-        } else {
-            alert(`Tienes ${quantityCart} unidades en el carrito y solo hay ${stock} en stock, no puedes agregar ${count} más.`)
+        if (stock >= count) {
+                cartCtx.addItem(item, count)
+                setIrCart(true)
         }
     }
 
@@ -29,9 +28,9 @@ const ItemDetail = ({ item }) => {
                 <p>{description}</p>
                 <h4>Medidas</h4>
                 <p>{measure}</p>
-                {quantityToAdd<1
+                {!irCart
                     ? <ItemCount stock={stock} initial={1} onAdd={handlerCart}/>
-                    : <Link to={"/cart"}><Button content={`Terminar mi compra (${quantityCart})`} styles={'button'}/></Link>
+                    : <Link to={"/cart"}><Button content={`Terminar mi compra ()`} styles={'button'}/></Link>
                 }
             </div>
         </div>

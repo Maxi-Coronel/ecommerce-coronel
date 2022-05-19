@@ -7,7 +7,6 @@ const Products = [{
     measure: "2.20 x 0.95 mts",
     category: "sofa",
     stock: 5,
-    quantityCart: 0
 },{
     id: "002",
     pictureUrl: "http://fronteraliving.com/imagenes/productos/gfr-65-673404.jpg",
@@ -17,7 +16,6 @@ const Products = [{
     measure: "3.10 x 2.05 mts",
     category: "rinconero",
     stock: 7,
-    quantityCart: 0
 },{
     id: "003",
     pictureUrl: "http://fronteraliving.com/imagenes/productos/gfr-177-527065.jpg",
@@ -27,7 +25,6 @@ const Products = [{
     measure: "4.43 x 2.47 mts",
     category: "rinconero",
     stock: 8,
-    quantityCart: 0
 },{
     id: "004",
     pictureUrl: "http://fronteraliving.com/imagenes/productos/gfr-62-199060.jpg",
@@ -37,7 +34,6 @@ const Products = [{
     measure: "2.20 x 0.95 mts",
     category: "rinconero",
     stock: 3,
-    quantityCart: 0
 }];
 
 const getData = new Promise((resolve) => {
