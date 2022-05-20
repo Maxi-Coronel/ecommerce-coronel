@@ -6,11 +6,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { CartContextProvider } from './storage/CartContext';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const container = document.getElementById("root")
+const root = ReactDOM.createRoot(container);
 root.render(
-    <BrowserRouter>
-        <CartContextProvider>
-            <App />
-        </CartContextProvider>
-    </BrowserRouter>
-)
+    <React.StrictMode>
+        <BrowserRouter>
+            <CartContextProvider>
+                <App />
+            </CartContextProvider>
+        </BrowserRouter>
+    </React.StrictMode>
+);
