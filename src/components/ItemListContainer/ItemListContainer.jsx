@@ -3,7 +3,7 @@ import ItemList from './ItemList/ItemList';
 import Loading from '../Loading/Loading';
 import { useParams } from 'react-router-dom';
 import './ItemListContainer.css';
-import { prueba } from '../../Services/firebase';
+import { getProducts } from '../../Services/firebase';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState();
@@ -11,8 +11,7 @@ const ItemListContainer = () => {
     const { categoryId } = useParams();
     
     useEffect(() => {
-        setLoading(true);
-        prueba()
+        getProducts()
             .then(res => {
                 setItems(categoryId? res.filter(e => e.category === categoryId) : res)
             })
@@ -22,7 +21,9 @@ const ItemListContainer = () => {
 
     return (
         <div className='item-list-container'>
-            {!loading ? <ItemList items={items}/> : <Loading />}
+            {!loading
+                ? <ItemList items={items}/>
+                : <Loading />}
         </div>
     );
 };
