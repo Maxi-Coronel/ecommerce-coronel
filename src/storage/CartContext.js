@@ -21,12 +21,12 @@ export const CartContextProvider = ({ children }) => {
             : setProductsList([{quantity: count, ...product}, ...productsList])
     }
     
-    const removeItem = id => {
+    const removeItem = (id) => {
         setProductsList(productsList.filter(item => item.id !== id))
     }
 
     const isInCart = (product) => {
-        return productsList.map(p => p.id).indexOf(product.id) !== -1;
+        return productsList.map(item => item.id).indexOf(product.id) !== -1;
     }
 
     const clear = () => {
@@ -34,22 +34,22 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const totalPrice = () => {
-       return productsList.map(item => item).reduce((total, item) => total + item.quantity * item.price, 0)
+       return productsList.reduce((total, item) => total + item.quantity * item.price, 0)
     }
     
     const quantityItem = () => {
-        return productsList.map(item => item.quantity).reduce((total, item) => total + item, 0)
+        return productsList.reduce((total, item) => total + item.quantity, 0)
     }
 
     return(
         <CartContext.Provider value={{
             products: productsList,
-            addItem: addItem,
-            removeItem: removeItem,
-            isInCart: isInCart,
-            clear: clear,
-            totalPrice: totalPrice,
-            quantityItem: quantityItem
+            addItem,
+            removeItem,
+            isInCart,
+            clear,
+            totalPrice,
+            quantityItem
         }}>
             {children}
         </CartContext.Provider>
