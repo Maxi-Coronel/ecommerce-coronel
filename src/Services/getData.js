@@ -1,3 +1,5 @@
+import { dataToFirebase } from "./firebase";
+
 const Products = [{
     id: "001",
     pictureUrl: "http://fronteraliving.com/imagenes/productos/gfr-140-701048.jpg",
@@ -40,4 +42,9 @@ const getData = new Promise((resolve) => {
         resolve(Products)
 });
 
-export default getData
+//para cargar datos solo llame a la función uploadToFirebase() en su app
+export const uploadToFirebase = () => {
+  getData.then(res => {
+    dataToFirebase(res)
+  })
+}
