@@ -58,6 +58,9 @@ Se basa en 3 páginas antes mencionadas, cada una con sus parametros de filtro, 
 Por ahora el Home solo muestra el catalogo completo de productos, en el cual luego se puede filtrar por categorias de sofa o rinconero.
 Detail muestra los detalles del producto seleccionado con la posibilidad de agregar tal producto al carrito, e ir hacia su página.
 
+
+![image](https://github.com/Maxi-Coronel/ecommerce-coronel/blob/main/Navegation.gif)
+
 ## Imágenes y estilos
 
 Todas las url son tomadas del sitio web de la empresa 'http://fronteraliving.com/'
@@ -94,8 +97,3 @@ En el directorio del proyecto, puede ejecutar:
 
 ### `npm run eject`
 
-
-![image](https://github.com/Maxi-Coronel/ecommerce-coronel/blob/main/Navegation.gif)
-Explicación
-https://github.com/ZhengYaWei1992/ZWProgressView/blob/master/Untitled3.gif
- Esta URL de enlace es la URL de enlace que se muestra en github después de cargar la imagen gif.
