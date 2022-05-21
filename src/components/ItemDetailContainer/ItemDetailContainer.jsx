@@ -9,16 +9,16 @@ const ItemDetailContainer = () => {
 
     const [item, setItem] = useState()
     const [loading, setLoading] = useState(true)
-    const { title } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
-        getProductById(title)
+        getProductById(id)
             .then(res => {
                 setItem(res);
             })
-            .catch(err => alert(`error en promise`))
+            .catch(err => console.log(`error en promise detail:`))
             .finally(() => setLoading(false))
-    },[title])
+    },[id])
 
     return (
         <div className='item-detail-container'>

@@ -17,10 +17,10 @@ const Item = ({ item }) => {
                 setIrCart(true)
         }
     }
-
+    
     return (
         <div className='card'>
-            <Link to={`/item/${title}`} className='card-link'>
+            <Link to={`/item/${id}`} className='card-link'>
                 <img src={pictureUrl} alt={title} className='card-img' />
                 <div>
                     <h3>{title}</h3>
@@ -29,7 +29,7 @@ const Item = ({ item }) => {
             </Link>
             {!irCart
                 ? <ItemCount stock={stock} initial={1} onAdd={handlerCart}/>
-                : <Link to={"/cart"}><Button content={`Terminar mi compra (${cartCtx.products.find(item => item.id === id).quantity})`} styles={'button'}/></Link>
+                : <Link to={"/cart"}><Button content={`Terminar mi compra (${cartCtx.products.find(item => item.id === id) ? cartCtx.products.find(item => item.id === id).quantity : setIrCart(false)})`} styles={'button'}/></Link>
             }
         </div>
     );
