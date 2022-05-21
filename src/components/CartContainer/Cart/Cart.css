@@ -4,8 +4,20 @@
         align-items: center;
     background-color: white;
     margin: 17px 5%;
+    padding: 15px;
     border-radius: 15px;
     box-shadow: 1px 2px 5px black;
+}
+
+.cart .flex{
+    width: 50%;
+    display: flex;
+        justify-content: space-around;
+}
+
+.cart .flex .button{
+    padding: 5px 24.1795px;
+    align-items: center;
 }
 
 .cart b{

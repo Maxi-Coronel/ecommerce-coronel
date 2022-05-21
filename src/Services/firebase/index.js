@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, updateDoc, where, writeBatch, setDoc } from "firebase/firestore";
 
@@ -16,7 +17,7 @@ const db = getFirestore(app);
 // Desición de lista completa o filtrada
 export const getProducts = async(categoryId) => {
   const productsCol = collection(db, 'products');
-  if (categoryId === 'string') {
+  if (typeof(categoryId) === 'string') {
     return getProductsByCategoryId(productsCol, categoryId);
   } else {
     return getAllProducts(productsCol);
@@ -32,17 +33,17 @@ export const getAllProducts = async(collection) => {
 
 // Obtenga una lista de productos de su base de datos filtrada por categorias
 export const getProductsByCategoryId = async(collection, categoryId) => {
-  const q = query(collection, where('category', '===', categoryId))
+  const q = query(collection, where('category', '==', categoryId))
   const productSnapshot = await getDocs(q);
   const productList = productSnapshot.docs.map(doc => doc.data());
   return productList;
 }
 
 // Obtenga un producto de su base de datos
-export const getProductById = async(productTitle) => {
-  const productById = doc(db, 'products', productTitle);
-  const productSnapshot = await getDoc(productById).data()
-  return productSnapshot
+export const getProductById = async(productId) => {
+  const productById = doc(db, 'products', productId);
+  const productSnapshot = await getDoc(productById)
+  return productSnapshot.data()
 }
 
 // Cargue nuevos Item desde un Array a su base de datos
@@ -56,5 +57,24 @@ export const dataToFirebase = (array) => {
     .catch(err => {
         console.error("Error adding document: ", err);
     });
+  });
+}
+
+// Poner el id del documento dentro de él
+export const actualizar = async() => {
+  const productsCol = collection(db, 'products');
+  const productSnapshot = await getDocs(productsCol);
+  const productList = productSnapshot.docs;
+  console.log(productList.map(doc => doc.data()));
+  productList.map(i => {
+    setDoc(doc(db, "products", i.id), {id:i.id}, { merge: true })
+  });
+}
+
+// Agregar una nueva orden
+export const exmpleSendOrder = async(user, array) => {
+  await addDoc(collection(db, "orders"), {
+    user: user,
+    order: array
   });
 }

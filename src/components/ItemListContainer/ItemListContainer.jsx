@@ -7,21 +7,21 @@ import { getProducts } from '../../Services/firebase';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const { categoryId } = useParams();
-    
+
     useEffect(() => {
-        getProducts()
+        getProducts(categoryId)
             .then(res => {
-                setItems(categoryId? res.filter(e => e.category === categoryId) : res)
+                setItems(res)
             })
             .catch(err => alert(`error en promise`))
-            .finally(() => setLoading(false))
+            .finally(() => setLoading(true))
       },[categoryId]);
 
     return (
         <div className='item-list-container'>
-            {!loading
+            {loading
                 ? <ItemList items={items}/>
                 : <Loading />}
         </div>
