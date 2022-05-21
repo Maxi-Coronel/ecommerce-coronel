@@ -20,7 +20,7 @@ export const CartContextProvider = ({ children }) => {
                 : alert(`No tenemos suficiente stock de ${product.title}`)
             : setProductsList([{quantity: count, ...product}, ...productsList])
     }
-    
+
     const removeItem = (id) => {
         setProductsList(productsList.filter(item => item.id !== id))
     }
@@ -36,7 +36,7 @@ export const CartContextProvider = ({ children }) => {
     const totalPrice = () => {
        return productsList.reduce((total, item) => total + item.quantity * item.price, 0)
     }
-    
+
     const quantityItem = () => {
         return productsList.reduce((total, item) => total + item.quantity, 0)
     }

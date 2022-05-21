@@ -72,9 +72,11 @@ export const actualizar = async() => {
 }
 
 // Agregar una nueva orden
-export const exmpleSendOrder = async(user, array) => {
+export const exmpleSendOrder = async(user, array, total, date) => {
   await addDoc(collection(db, "orders"), {
     user: user,
-    order: array
+    order: array,
+    total: total,
+    date: date
   });
 }
