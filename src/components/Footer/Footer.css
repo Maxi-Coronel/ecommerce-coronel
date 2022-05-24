@@ -1,0 +1,17 @@
+.footer{
+    padding: 30px;
+    display: flex;
+        justify-content: space-around;
+    background-color: rgb(58, 58, 58);
+    color: white;
+}
+
+.footer-form{
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
+
+.footer-form input{
+    margin: 15px;
+}
