@@ -4,6 +4,7 @@ import Loading from '../Loading/Loading';
 import ItemDetail from './ItemDetail/ItemDetail';
 import { getProductById } from '../../Services/firebase';
 import './ItemDetailContainer.css'
+import Error from '../Error/Error';
 
 const ItemDetailContainer = () => {
 
@@ -23,8 +24,10 @@ const ItemDetailContainer = () => {
     return (
         <div className='item-detail-container'>
             {!loading
-            ? <ItemDetail item={item}/>
-            : <Loading />}
+                ? item
+                    ? <ItemDetail item={item}/>
+                    : <Error />
+                : <Loading />}
         </div>
     );
 };
