@@ -3,10 +3,14 @@
     margin: 0;
     padding: 20px;
     display: flex;
-        justify-content: space-between;   
+        justify-content: space-between;
+    background-color: rgb(58, 58, 58);
+    box-shadow: 1px 2px 5px black;
+    color: white;
 }
 
 .nav{
+    margin: 0 30px;
     list-style-type: none;
     display: flex;
         align-items: center;
@@ -21,10 +25,50 @@ li img{
     width: 30px;
 }
 
+h1 a{
+    color: white;
+}
+
 .header b{
     color: red;
 }
 
 .link-active{
+    font-weight: bold;
+}
+
+.oculto{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.oculto ul{
+    display: flex;
+        justify-content: center;
+    display: none;
+    padding: 0px;
+    text-align: center;
+    list-style: none;
+    width: 170px;
+    position: absolute;
+    float: left;
+    background-color: rgb(161, 161, 161);
+    box-shadow: 1px 2px 5px black;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.oculto:hover ul{
+    display: block;
+}
+
+.oculto a{
+    color: white;
+    padding: 3px;
+    text-align: left;
+}
+
+.oculto a:hover{
+    color: white;
     font-weight: bold;
 }

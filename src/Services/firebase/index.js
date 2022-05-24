@@ -1,6 +1,5 @@
-import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, updateDoc, where, writeBatch, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, where, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAQ0eQ1xpv1N0a6NmI9Fec_hCr5XaXtCRg",
@@ -22,6 +21,14 @@ export const getProducts = async(categoryId) => {
   } else {
     return getAllProducts(productsCol);
   }
+}
+
+// Obtenga categorias
+export const getCategories = async() => {
+  const categoriesCol = collection(db, 'categories');
+  const productSnapshot = await getDocs(categoriesCol);
+  const productList = productSnapshot.docs.map(doc => doc.data());
+  return productList;
 }
 
 // Obtenga la lista de productos de su base de datos
@@ -49,7 +56,7 @@ export const getProductById = async(productId) => {
 // Cargue nuevos Item desde un Array a su base de datos
 export const dataToFirebase = (array) => {
   array.forEach(item => {
-    const newItem = doc(collection(db, "products"));
+    const newItem = doc(collection(db, "categories"));
     setDoc(newItem, item)
     .then(() => {
       console.log("Document written with ID: ", newItem.id)
