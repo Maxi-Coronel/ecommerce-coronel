@@ -1,0 +1,16 @@
+.error404{
+    padding: 2% 15%;
+    display: flex;
+        justify-content: space-around;
+    height: 350px;
+}
+
+.error404 h2{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.error-title{
+    margin: 35px;
+}
