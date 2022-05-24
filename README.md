@@ -22,8 +22,10 @@ Componentes de uso único:
     -Categories
 - CartContainer
     -
+- Footer
+    -
 
-El componente Categoties, es un array de objetos con cada categoria que luego uso para mapearlas un mi NavBar.
+Las Categories se exportan desde firebase a un array de objetos con cada categoria con su link, que luego uso para mapearlas un mi NavBar.
 
 
 ### Componentes usados a lo largo del proyecto
@@ -34,36 +36,28 @@ El componente Categoties, es un array de objetos con cada categoria que luego us
     -
 - Loading
     -
-
-## Pages
-
-Aun no las estoy utilizando pero la idea es que cada Página se vea reflejada en cada uno de estos componentes.
-
-- Home
+- Error
     -
-- Detail
-    -
-- Cart
+- Form
     -
 
 ## Services
 
-Dentro de Services tengo mi archivo getData.js, en el cual tengo todos mis productos utilizados.
-Como la SPA la estoy desarrollando con productos de la empresa Frontera Living y no tiene una API para poder consumir lo hago desde una Promise.
+Dentro de Services se encuentra la carpeta firebase donde esta el archivo index.js. En él esta la configuracion de firebase, inicialización y todas las function utilizadas para llevar adelante la App
 
 ## Navegabilidad
 
 Cada ruta fue por requerimiento y buscan ser explícitas para brindar una buena UX.
 Se basa en 3 páginas antes mencionadas, cada una con sus parametros de filtro, se puede pasar de una a otra sin tener que recargar.
-Por ahora el Home solo muestra el catalogo completo de productos, en el cual luego se puede filtrar por categorias de sofa o rinconero.
-Detail muestra los detalles del producto seleccionado con la posibilidad de agregar tal producto al carrito, e ir hacia su página.
-
+El Home muestra el catalogo completo de productos, en el cual luego se puede filtrar por categorias desde el Navbar.
+Detail muestra los detalles del producto seleccionado con la posibilidad de agregar tal producto al carrito, e ir hacia su página. De mostrar un error en la Url del producto se mostrara una pantalla de Error con la opción de dirigirse a otros productos del catalogo.
+Por último esta el Cart donde se accede desde la card del producto o desde el Navbar, una vez que se haya agregado algun producto al carrito, desde esta página se accesede al Formulario para cargar datos y poder realizar la compra. Una vez finalizada la compra, en pantalla se mostrara que se ha realizado con éxito y en ella un boton para poder volver al Home
 
 ![image](https://github.com/Maxi-Coronel/ecommerce-coronel/blob/main/Navegation.gif)
 
 ## Imágenes y estilos
 
-Todas las url son tomadas del sitio web de la empresa 'http://fronteraliving.com/'
+Todas las url son tomadas del sitio web de la empresa 'https://tiendaliving.com.ar/'
 
 Los estilos CSS en su gran mayoria son de desarrollo propio, aunque esta linkeado el CSS online de Bootstrap para utilizarlos por ejemplo en los estilos de las "cards"
 
@@ -87,13 +81,6 @@ Este proyecto fue arrancado con [Create React App](https://github.com/facebook/c
 
 ## Scripts disponibles
 
-En el directorio del proyecto, puede ejecutar:
+Para ejecutar el proyecto se deben utilizar los siguientes comandos:
 
 ### `npm start`
-
-### `npm test`
-
-### `npm run build`
-
-### `npm run eject`
-
