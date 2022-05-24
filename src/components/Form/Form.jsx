@@ -9,13 +9,12 @@ const Form = ({functional}) => {
         const surname = document.querySelector('#surname').value
         const dni = document.querySelector('#dni').value
         const mail = document.querySelector('#mail').value
-        const password = document.querySelector('#password').value
-        if (password.length < 8 || password.length > 16) {
-            return alert('error en contraseña')
+        const mailCorroborate = document.querySelector('#mail2').value
+        if (mail !== mailCorroborate) {
+            return alert('Los E-mail no son iguales')
         }
-        
-        const card = document.querySelector('#card').value
-        if (card.length !== 16) {
+        const mobile = document.querySelector('#mobile').value
+        if (mobile.length !== 10) {
             return alert('error en N° tarjeta')
         }
         
@@ -24,8 +23,7 @@ const Form = ({functional}) => {
           surname: surname,
           dni: dni,
           mail: mail,
-          password: password,
-          card: card,
+          mobile: mobile,
         }
         functional(user)
       }
@@ -48,11 +46,11 @@ const Form = ({functional}) => {
                     <label htmlFor="mail">
                         <span>E-mail:</span><input type="email" id='mail' required />
                     </label>
-                    <label htmlFor="password">
-                        <span>Contraseña:</span><input type="password" id='password' required />
+                    <label htmlFor="mail2">
+                        <span>Corroborar:</span><input type="email" id='mail2' required />
                     </label>
-                    <label htmlFor="card">
-                        <span>N° tarjeta:</span><input type="number" id='card' required />
+                    <label htmlFor="mobile">
+                        <span>Celular:</span><input type="number" id='mobile' required />
                     </label>
                 </div>
             </div>

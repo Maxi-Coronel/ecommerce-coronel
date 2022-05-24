@@ -1,8 +1,10 @@
 .form{
     display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
     padding: 5px 10%;
+    min-height: 50vh;
 }
 
 .form label{
