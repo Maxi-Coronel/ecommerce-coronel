@@ -6,8 +6,8 @@ import './ItemListContainer.css';
 import { getProducts } from '../../Services/firebase';
 
 const ItemListContainer = () => {
-    const [items, setItems] = useState();
-    const [loading, setLoading] = useState(false);
+    const [items, setItems] = useState(false);
+    const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
 
     useEffect(() => {
@@ -16,12 +16,12 @@ const ItemListContainer = () => {
                 setItems(res)
             })
             .catch(err => alert(`error en promise`))
-            .finally(() => setLoading(true))
+            .finally(() => setLoading(false))
       },[categoryId]);
 
     return (
         <div className='item-list-container'>
-            {loading
+            {!loading
                 ? <ItemList items={items}/>
                 : <Loading />}
         </div>
