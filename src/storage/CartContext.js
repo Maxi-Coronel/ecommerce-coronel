@@ -7,11 +7,14 @@ const CartContext = createContext({
     isInCart: () => {},
     clear: () => {},
     quantityItem: () => {},
-    totalPrice: () => {}
+    totalPrice: () => {},
+    initial: Number
 });
 
 export const CartContextProvider = ({ children }) => {
     const [productsList, setProductsList] = useState([]);
+
+    const initial = 1;
 
     const addItem = (product, count) => {
         isInCart(product)
@@ -49,9 +52,10 @@ export const CartContextProvider = ({ children }) => {
             isInCart,
             clear,
             totalPrice,
-            quantityItem
+            quantityItem,
+            initial
         }}>
-            {children}
+            { children }
         </CartContext.Provider>
     )
 }
