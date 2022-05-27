@@ -1,7 +1,7 @@
-.cart-widget{
+.widget{
     display: flex;
 }
-.cart-widget img{
+.widget img{
     width: 70px;
 }
 .quantity-cart{

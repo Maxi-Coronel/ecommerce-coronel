@@ -9,12 +9,13 @@ const Item = ({ item }) => {
     const {id, title, pictureUrl, price, stock} = item;
 
     const cartCtx = useContext(CartContext)
-    const [irCart, setIrCart] = useState(false)
+    const [isCart, setIsCart] = useState(false)
+    const initial = cartCtx.initial
     
     const handlerCart = (count) => {
         if (stock >= count) {
                 cartCtx.addItem(item, count)
-                setIrCart(true)
+                setIsCart(true)
         }
     }
     
@@ -27,9 +28,9 @@ const Item = ({ item }) => {
                     <h4>${price}</h4>
                 </div>
             </Link>
-            {!irCart
-                ? <ItemCount stock={stock} initial={1} onAdd={handlerCart}/>
-                : <Link to={"/cart"}><Button content={`Terminar mi compra (${cartCtx.products.find(item => item.id === id) ? cartCtx.products.find(item => item.id === id).quantity : setIrCart(false)})`} styles={'button'}/></Link>
+            {!isCart
+                ? <ItemCount stock={stock} initial={initial} onAdd={handlerCart}/>
+                : <Link to={"/cart"}><Button content={`Terminar mi compra (${cartCtx.products.find(item => item.id === id) ? cartCtx.products.find(item => item.id === id).quantity : setIsCart(false)})`} styles={'button'}/></Link>
             }
         </div>
     );

@@ -9,12 +9,13 @@ const ItemDetail = ({ item }) => {
     const {id, title, price, pictureUrl, description, measure, stock} = item
 
     const cartCtx = useContext(CartContext)
-    const [irCart, setIrCart] = useState(false)
+    const [isCart, setIsCart] = useState(false)
+    const initial = cartCtx.initial
     
     const handlerCart = (count) => {
         if (stock >= count) {
                 cartCtx.addItem(item, count)
-                setIrCart(true)
+                setIsCart(true)
         }
     }
 
@@ -28,8 +29,8 @@ const ItemDetail = ({ item }) => {
                 <p>{description}</p>
                 <h4>Medidas</h4>
                 <p>{measure}</p>
-                {!irCart
-                    ? <ItemCount stock={stock} initial={1} onAdd={handlerCart}/>
+                {!isCart
+                    ? <ItemCount stock={stock} initial={initial} onAdd={handlerCart}/>
                     : <Link to={"/cart"}><Button content={`Terminar mi compra (${cartCtx.products.find(item => item.id === id).quantity})`} styles={'button'}/></Link>
                 }
             </div>
