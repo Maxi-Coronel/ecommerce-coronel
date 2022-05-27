@@ -1,15 +1,23 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { exmpleSendOrder } from '../../Services/firebase';
+import { sendOrder } from '../../Services/firebase';
 import CartContext from '../../storage/CartContext';
+import UserContext from '../../storage/UserContext';
 import Button from '../Button/Button';
-import Form from '../Form/Form';
-import Cart from './Cart/Cart';
+import CartItem from './Cart/CartItem';
+import CartVoid from './CartVoid';
 
 const CartContainer = () => {
     const cartCtx = useContext(CartContext)
-    const [pay, setPay] = useState(false);
-    const [buy, setBuy] = useState(false);
+    const userCtx = useContext(UserContext)
+
+    const [link, setLink] = useState('/cart');
+
+    useEffect(() => {
+      Object.keys(userCtx.user).length === 0
+      ? setLink('/registro')
+      : setLink('/finalizada')
+    },[userCtx.user])
 
     const today = new Date();
     const output = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
@@ -17,40 +25,27 @@ const CartContainer = () => {
     const date = output + '-' + time
 
     const cargarOrden = (user) => {
-      exmpleSendOrder(user, cartCtx.products, cartCtx.totalPrice(), date);
-      setBuy(true);
+      sendOrder(user, cartCtx.products, cartCtx.totalPrice(), date);
       cartCtx.clear();
     }
 
+    const corroborarSesion = () => {
+      Object.keys(userCtx.user).length !== 0 && cargarOrden(userCtx.user)
+    }
 
     return (
-      !buy
-      ? cartCtx.products.length > 0
-        ? !pay
+        cartCtx.products.length > 0
           ? <div className='cart'>
-            {cartCtx.products.map(item => <Cart key={item.id} item={item}/>)}
+            {cartCtx.products.map(item => <CartItem key={item.id} item={item}/>)}
             <div>
                 <p>Total: ${cartCtx.totalPrice()}</p>
             </div>
             <div className='flex'>
-              <Button functional={() => setPay(true)} content={'Comprar'} styles={'button'}/>
+              <Button functional={corroborarSesion} content={<Link to={link}>Comprar</Link>} styles={'button'}/>
               <Button functional={cartCtx.clear} content={'Borrar Carrito'} styles={'close'}/>
             </div>
           </div>
-          : <div className='cart'>
-              <Form functional={cargarOrden}/>
-            </div>
-        : <div className='cart p-vacio'>
-            <p><b>Tu carrito está vacío</b><br/>¿No sabés qué comprar?<br/>Tenemos muchas opciones para tí</p>
-            <Link to={"/"}><Button content={'Vuelve al Home'} styles={'button'}/></Link>
-            
-          </div>
-      : <div className='cart buy'>
-          <img src="https://bikenbabia.files.wordpress.com/2016/11/ok.png?w=149&h=142" alt="" />
-          <p><b>Tu compra fue realizada</b><br/>Muchas gracias por confiar en nosotros</p>
-            <Link to={"/"}><Button content={'Vuelve al Home'} styles={'b-buy'}/></Link>
-        </div>
-        
+          : <CartVoid />
     );
 };
 

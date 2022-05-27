@@ -14,36 +14,14 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Desición de lista completa o filtrada
-export const getProducts = async(categoryId) => {
-  const productsCol = collection(db, 'products');
-  if (typeof(categoryId) === 'string') {
-    return getProductsByCategoryId(productsCol, categoryId);
-  } else {
-    return getAllProducts(productsCol);
+export const getCollection = async(collections, filter, valueFilter) => {
+  let collect = collection(db, collections);
+  if (valueFilter) {
+    collect = query(collect, where(filter, '==', valueFilter))
   }
-}
-
-// Obtenga categorias
-export const getCategories = async() => {
-  const categoriesCol = collection(db, 'categories');
-  const productSnapshot = await getDocs(categoriesCol);
-  const productList = productSnapshot.docs.map(doc => doc.data());
-  return productList;
-}
-
-// Obtenga la lista de productos de su base de datos
-export const getAllProducts = async(collection) => {
-  const productSnapshot = await getDocs(collection);
-  const productList = productSnapshot.docs.map(doc => doc.data());
-  return productList;
-}
-
-// Obtenga una lista de productos de su base de datos filtrada por categorias
-export const getProductsByCategoryId = async(collection, categoryId) => {
-  const q = query(collection, where('category', '==', categoryId))
-  const productSnapshot = await getDocs(q);
-  const productList = productSnapshot.docs.map(doc => doc.data());
-  return productList;
+  const collectionSnapshot = await getDocs(collect);
+  const collectionList = collectionSnapshot.docs.map(doc => doc.data());
+  return collectionList;
 }
 
 // Obtenga un producto de su base de datos
@@ -58,12 +36,6 @@ export const dataToFirebase = (array) => {
   array.forEach(item => {
     const newItem = doc(collection(db, "categories"));
     setDoc(newItem, item)
-    .then(() => {
-      console.log("Document written with ID: ", newItem.id)
-    })
-    .catch(err => {
-        console.error("Error adding document: ", err);
-    });
   });
 }
 
@@ -72,18 +44,31 @@ export const actualizar = async() => {
   const productsCol = collection(db, 'products');
   const productSnapshot = await getDocs(productsCol);
   const productList = productSnapshot.docs;
-  console.log(productList.map(doc => doc.data()));
   productList.map(i => {
-    setDoc(doc(db, "products", i.id), {id:i.id}, { merge: true })
+    return setDoc(doc(db, "products", i.id), {id:i.id}, { merge: true })
   });
 }
 
 // Agregar una nueva orden
-export const exmpleSendOrder = async(user, array, total, date) => {
+export const sendOrder = async(user, array, total, date) => {
   await addDoc(collection(db, "orders"), {
     user: user,
     order: array,
     total: total,
     date: date
   });
+}
+
+// Agregar un nuevo usuario
+export const sendUser = async(user, id) => {
+  const collectionRef = collection(db, "users");
+  await setDoc(doc(collectionRef, id), {
+    user: user });
+}
+
+// Obtenga un usuario de su base de datos
+export const getUserById = async(userMail) => {
+  const userById = doc(db, 'users', userMail);
+  const userSnapshot = await getDoc(userById)
+  return userSnapshot.data()
 }

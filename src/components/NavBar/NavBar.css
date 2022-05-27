@@ -10,7 +10,7 @@
 }
 
 .nav{
-    margin: 0 30px;
+    margin: 0 70px;
     list-style-type: none;
     display: flex;
         align-items: center;
@@ -26,6 +26,10 @@ li img{
 }
 
 h1 a{
+    color: white;
+}
+
+h1 a:hover{
     color: white;
 }
 
@@ -49,9 +53,8 @@ h1 a{
     padding: 0px;
     text-align: center;
     list-style: none;
-    width: 170px;
+    width: 160px;
     position: absolute;
-    float: left;
     background-color: rgb(161, 161, 161);
     box-shadow: 1px 2px 5px black;
     z-index: 10;

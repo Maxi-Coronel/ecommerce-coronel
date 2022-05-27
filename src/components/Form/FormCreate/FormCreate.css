@@ -4,7 +4,7 @@
         justify-content: center;
         align-items: center;
     padding: 5px 10%;
-    min-height: 50vh;
+    min-height: 30vh;
 }
 
 .form label{
@@ -16,4 +16,18 @@
 
 .form .data{
     display: flex;
+}
+
+.form button{
+    margin: 20px 0;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.span-oculto{
+    display: none;
 }
