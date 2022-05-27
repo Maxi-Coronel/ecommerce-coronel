@@ -3,15 +3,17 @@ import ItemList from './ItemList/ItemList';
 import Loading from '../Loading/Loading';
 import { useParams } from 'react-router-dom';
 import './ItemListContainer.css';
-import { getProducts } from '../../Services/firebase';
+import { getCollection } from '../../Services/firebase';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState(false);
     const [loading, setLoading] = useState(true);
+    const collec = 'products'
+    const filter = 'category'
     const { categoryId } = useParams();
 
     useEffect(() => {
-        getProducts(categoryId)
+        getCollection(collec, filter, categoryId)
             .then(res => {
                 setItems(res)
             })
