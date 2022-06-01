@@ -7,6 +7,7 @@ import CartContainer from './components/CartContainer/CartContainer';
 import Footer from './components/Footer/Footer';
 import Registration from './components/Registration/Registration';
 import CartFinished from './components/CartContainer/CartFinished';
+import Orders from './components/OrdersContainer/OrdersContainer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/registro' element={<Registration />}/>
         <Route path='/cart' element={<CartContainer />}/>
         <Route path='/finalizada' element={<CartFinished />}/>
+        <Route path='/compras' element={<Orders />}/>
       </Routes>
       <Footer />
     </div>
