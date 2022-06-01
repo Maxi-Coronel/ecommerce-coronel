@@ -23,9 +23,9 @@ const ItemListContainer = () => {
 
     return (
         <div className='item-list-container'>
-            {!loading
-                ? <ItemList items={items}/>
-                : <Loading />}
+        {!loading
+            ? <ItemList items={items}/>
+            : <Loading />}
         </div>
     );
 };

@@ -7,6 +7,7 @@ import Button from '../Button/Button';
 import FormCreate from '../Form/FormCreate/FormCreate';
 import FormSesion from '../Form/FormSesion/FormSesion';
 import Loading from '../Loading/Loading';
+import Modal from '../Modal/Modal';
 import './Registration.css'
 
 const Registration = () => {
@@ -17,6 +18,12 @@ const Registration = () => {
     const [loading, setLoading] = useState(true)
     const [isCart, setIsCart] = useState()
     const [link, setLink] = useState()
+    const [isModal, setIsModal] = useState({
+        title: "",
+        content: "",
+        isOpen: false
+    });
+    const closeModal = () => setIsModal({isOpen: false})
 
     useEffect(() => {
         setUser(userCtx.user)
@@ -37,18 +44,29 @@ const Registration = () => {
         getUserById(user.mail)
         .then(res => {
             res !== undefined
-                ? alert(`El email ${user.mail} ya esta utilizado`)
+                ? setIsModal({
+                    title: "Error email",
+                    content: `El email ${user.mail} ya esta utilizado`,
+                    isOpen: true
+                })
                 : sendUser(user, user.mail)
         })
     }
     const traeUser = (user) => {
         getUserById(user.mail)
         .then(res => {
-            console.log(res.user);
             res === undefined
-                ? alert('error en email')
+                ? setIsModal({
+                    title: "Error email",
+                    content: "El email no existe",
+                    isOpen: true
+                })
                 : res.user.password !== user.password
-                    ? alert('error contraseña')
+                    ? setIsModal({
+                        title: "Error contraseña",
+                        content: "La contraseña es incorrecta",
+                        isOpen: true
+                    })
                     : userCtx.set(res.user)
         })
     }
@@ -60,6 +78,7 @@ const Registration = () => {
             ? <div className='cart'>
                 <FormSesion functional={traeUser} />
                 <FormCreate functional={cargarUser} />
+                <Modal title={isModal.title} content={isModal.content} isOpen={isModal.isOpen} closeModal={closeModal} />
             </div>
             : !loading
                 ? <div className='cart'>

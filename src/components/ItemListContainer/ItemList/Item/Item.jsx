@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CartContext from '../../../../storage/CartContext';
 import Button from '../../../Button/Button';
 import ItemCount from '../../../ItemCount/ItemCount';
+import Modal from '../../../Modal/Modal';
 import './Item.css';
 
 const Item = ({ item }) => {
@@ -32,6 +33,8 @@ const Item = ({ item }) => {
                 ? <ItemCount stock={stock} initial={initial} onAdd={handlerCart}/>
                 : <Link to={"/cart"}><Button content={`Terminar mi compra (${cartCtx.products.find(item => item.id === id) ? cartCtx.products.find(item => item.id === id).quantity : setIsCart(false)})`} styles={'button'}/></Link>
             }
+            
+        <Modal title={cartCtx.modal.title} content={cartCtx.modal.content} isOpen={cartCtx.modal.isOpen} closeModal={cartCtx.closeModal} />
         </div>
     );
 };

@@ -1,0 +1,33 @@
+.modal{
+    display: none;
+    background-color: rgb(161, 161, 161);
+    width: 40%;
+    height: auto;
+    margin: 25vh 30%;
+    box-shadow: 1px 1px 15px 0px rgb(63, 63, 63);
+    border-radius: 15px;
+}
+
+.modal-open{
+    display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+}
+
+.modal-content{
+    padding: 10% 15% 15%;
+    background-color: rgb(161, 161, 161);
+    border: none;
+}
+
+.button-close{
+    display: flex;
+        justify-content: end;
+    width: 100%;
+    height: 5%;
+}
+
+.button-close .close{
+    margin: 8px;
+}

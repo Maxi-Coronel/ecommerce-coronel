@@ -26,6 +26,7 @@ const CartContainer = () => {
 
     const cargarOrden = (user) => {
       sendOrder(user, cartCtx.products, cartCtx.totalPrice(), date);
+      
       cartCtx.clear();
     }
 

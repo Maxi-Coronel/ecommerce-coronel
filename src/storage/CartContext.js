@@ -2,6 +2,8 @@ import { createContext, useState } from 'react';
 
 const CartContext = createContext({
     products: [],
+    modal: {},
+    closeModal: () => {},
     addItem: () => {},
     removeItem: () => {},
     isInCart: () => {},
@@ -13,6 +15,13 @@ const CartContext = createContext({
 
 export const CartContextProvider = ({ children }) => {
     const [productsList, setProductsList] = useState([]);
+    const [isModal, setIsModal] = useState({
+        title: "",
+        content: "",
+        isOpen: false
+    });
+
+    const closeModal = () => setIsModal({isOpen: false})
 
     const initial = 1;
 
@@ -20,7 +29,11 @@ export const CartContextProvider = ({ children }) => {
         isInCart(product)
             ? product.stock >= productsList.find(item => item.id === product.id).quantity + count
                 ? setProductsList(productsList.map(item => item.id === product.id ? {...item, quantity: item.quantity + count} : item))
-                : alert(`No tenemos suficiente stock de ${product.title}`)
+                : setIsModal({
+                    title: product.title,
+                    content: `No tenemos suficiente stock de ${product.title}`,
+                    isOpen: true
+                })
             : setProductsList([{quantity: count, ...product}, ...productsList])
     }
 
@@ -47,6 +60,8 @@ export const CartContextProvider = ({ children }) => {
     return(
         <CartContext.Provider value={{
             products: productsList,
+            modal: isModal,
+            closeModal,
             addItem,
             removeItem,
             isInCart,
