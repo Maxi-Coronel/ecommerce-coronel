@@ -16,7 +16,7 @@ const OrdersContainer = () => {
     useEffect(() => {
         getCollection(collec, filter, users)
             .then(res => {
-                setOrders(res)
+                setOrders(res.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0)))
             })
             .catch(err => alert(`error en promise`))
             .finally(() => setLoading(false))
