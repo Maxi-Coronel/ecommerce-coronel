@@ -2,21 +2,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
-import { CartContextProvider } from './storage/CartContext';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { CartContextProvider } from './Context/CartContext';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { UserContextProvider } from './storage/UserContext';
+import { UserContextProvider } from './Context/UserContext';
 
 const container = document.getElementById("root")
 const root = ReactDOM.createRoot(container);
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
+        <Router>
             <CartContextProvider>
             <UserContextProvider>
                 <App />
             </UserContextProvider>
             </CartContextProvider>
-        </BrowserRouter>
+        </Router>
     </React.StrictMode>
 );

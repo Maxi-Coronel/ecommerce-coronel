@@ -25,10 +25,10 @@ export const getCollection = async(collections, filter, valueFilter) => {
 }
 
 // Obtenga un producto de su base de datos
-export const getProductById = async(productId) => {
-  const productById = doc(db, 'products', productId);
-  const productSnapshot = await getDoc(productById)
-  return productSnapshot.data()
+export const getById = async(id, collection) => {
+  const objectById = doc(db, collection, id);
+  const objectSnapshot = await getDoc(objectById)
+  return objectSnapshot.data()
 }
 
 // Cargue nuevos Item desde un Array a su base de datos
@@ -64,11 +64,4 @@ export const sendUser = async(user, id) => {
   const collectionRef = collection(db, "users");
   await setDoc(doc(collectionRef, id), {
     user: user });
-}
-
-// Obtenga un usuario de su base de datos
-export const getUserById = async(userMail) => {
-  const userById = doc(db, 'users', userMail);
-  const userSnapshot = await getDoc(userById)
-  return userSnapshot.data()
 }

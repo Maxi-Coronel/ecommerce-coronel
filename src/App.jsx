@@ -1,13 +1,14 @@
 import './App.css'
-import NavBar from './components/NavBar/NavBar';
 import { Route, Routes } from 'react-router-dom';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
-import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import CartContainer from './components/CartContainer/CartContainer';
+import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
-import Registration from './components/Registration/Registration';
-import CartFinished from './components/CartContainer/CartFinished';
-import Orders from './components/OrdersContainer/OrdersContainer';
+import ItemDetailContainer from './components/Pages/ItemDetailContainer/ItemDetailContainer'
+import ItemListContainer from './components/Pages/ItemListContainer/ItemListContainer'
+import CartContainer from './components/Pages/CartContainer/CartContainer';
+import Registration from './components/Pages/Registration/Registration';
+import CartFinished from './components/Pages/CartFinished/CartFinished';
+import OrdersContainer from './components/Pages/OrdersContainer/OrdersContainer';
+import Error from './components/Pages/Error/Error';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
         <Route path='/registro' element={<Registration />}/>
         <Route path='/cart' element={<CartContainer />}/>
         <Route path='/finalizada' element={<CartFinished />}/>
-        <Route path='/compras' element={<Orders />}/>
+        <Route path='/compras' element={<OrdersContainer />}/>
+        <Route path='*' element={<Error />}/>
       </Routes>
       <Footer />
     </div>

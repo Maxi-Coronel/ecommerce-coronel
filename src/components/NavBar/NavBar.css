@@ -1,9 +1,16 @@
+header{
+    position: sticky;
+        top: 0;
+    z-index: 1;
+}
+
 .header {
     font-family:  sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     display: flex;
         justify-content: space-between;
+        align-items: center;
     background-color: rgb(58, 58, 58);
     box-shadow: 1px 2px 5px black;
     color: white;
@@ -19,17 +26,14 @@
 
 .nav li{
     margin: 10px;
+    color: white;
 }
 
 li img{
     width: 30px;
 }
 
-h1 a{
-    color: white;
-}
-
-h1 a:hover{
+.header a{
     color: white;
 }
 
@@ -38,40 +42,5 @@ h1 a:hover{
 }
 
 .link-active{
-    font-weight: bold;
-}
-
-.oculto{
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.oculto ul{
-    display: flex;
-        justify-content: center;
-    display: none;
-    padding: 0px;
-    text-align: center;
-    list-style: none;
-    width: 160px;
-    position: absolute;
-    background-color: rgb(161, 161, 161);
-    box-shadow: 1px 2px 5px black;
-    z-index: 10;
-    border-radius: 5px;
-}
-
-.oculto:hover ul{
-    display: block;
-}
-
-.oculto a{
-    color: white;
-    padding: 3px;
-    text-align: left;
-}
-
-.oculto a:hover{
-    color: white;
     font-weight: bold;
 }

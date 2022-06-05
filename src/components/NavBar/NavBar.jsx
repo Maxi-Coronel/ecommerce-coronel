@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getCollection } from '../../Services/firebase';
-import CartWidget from './CartWidget/CartWidget';
+import CartWidget from './Widget/CartWidget';
+import UserWidget from './Widget/UserWidget';
 import Categories from './Categories/Categories';
 import './NavBar.css';
-import UserWidget from './UserWidget/UserWidget';
 
 const NavBar = () => {
     
@@ -22,13 +22,11 @@ const NavBar = () => {
     return (
         <header>
             <div className='header'>
-                <h1><Link to={'/'}><b>Frontera</b> Living</Link></h1>
+                <h1>
+                    <Link to={'/'}><b>Frontera</b> Living</Link>
+                </h1>
                 <ul className='nav'>
-                    <li className='oculto'>Filtrar
-                        <ul>
-                            {categories.map((item, index) => <Categories key={index} categories={item}/>)}
-                        </ul>
-                    </li>
+                    {categories.map((item, index) => <Categories key={index} categories={item}/>)}
                     <li><CartWidget /></li>
                     <li><UserWidget />
                     </li>

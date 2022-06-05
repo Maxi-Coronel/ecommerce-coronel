@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button/Button';
+import Button from '../Common/Button/Button';
 import './Footer.css'
 
 const Footer = () => {
