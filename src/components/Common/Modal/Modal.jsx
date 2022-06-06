@@ -13,7 +13,7 @@ const Modal = ({ title, content, isOpen, closeModal }) => {
                 </div>
                 <div className='modal-content'>
                     <h3>{texTitle}</h3>
-                    <p>{texContent}</p>
+                    <span>{texContent}</span>
                 </div>
             </div>
     );

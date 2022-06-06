@@ -15,8 +15,11 @@ const Registration = () => {
 
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
-    const [isCart, setIsCart] = useState()
-    const [link, setLink] = useState()
+    const [link, setLink] = useState({
+        text:'',
+        link:''
+    })
+    
     const [isModal, setIsModal] = useState({
         title: "",
         content: "",
@@ -31,16 +34,12 @@ const Registration = () => {
     },[userCtx.user])
 
     useEffect(() => {
-        if (cartCtx.products.length === 0) {
-            setIsCart('Home')
-            setLink('/')
-        } else {
-            setIsCart('Ir al carrito')
-            setLink('/cart')
-        }
+        cartCtx.products.length === 0
+            ? setLink({text:'Home', link:'/'})
+            : setLink({text:'Ir al carrito', link:'/cart'})
     },[cartCtx.products])
 
-    const cargarUser = (user) => {
+    const loadUser = (user) => {
         getById(user.mail, collec)
         .then(res => {
             if (res !== undefined) {
@@ -51,16 +50,12 @@ const Registration = () => {
                 })
             } else {
                 sendUser(user, user.mail);
-                setIsModal({
-                    title: "Felicitaciones",
-                    content: `Su usuario fue crado ${user.name}`,
-                    isOpen: true
-                })
                 userCtx.set(user)
             }
         })
     }
-    const traeUser = (user) => {
+
+    const getUser = (user) => {
         getById(user.mail, collec)
         .then(res => {
             res === undefined
@@ -78,14 +73,16 @@ const Registration = () => {
                     : userCtx.set(res.user)
         })
     }
+
     const close = () => {
         userCtx.close()
     }
+
     return (
         Object.keys(userCtx.user).length === 0
             ? <div className='cart'>
-                <FormSesion functional={traeUser} />
-                <FormCreate functional={cargarUser} modal={setIsModal} />
+                <FormSesion functional={getUser} modal={setIsModal} />
+                <FormCreate functional={loadUser} modal={setIsModal} />
                 <Modal title={isModal.title} content={isModal.content} isOpen={isModal.isOpen} closeModal={closeModal} />
             </div>
             : !loading
@@ -97,7 +94,7 @@ const Registration = () => {
                         <h4>Email: {user.mail}</h4>
                     </div>
                     <div className='flex '>
-                        <Link to={link}><Button content={isCart} styles={'button'}/></Link>
+                        <Link to={link.link}><Button content={link.text} styles={'button'}/></Link>
                         <Link to='/compras'><Button content='Ver compras' styles={'button'}/></Link>
                         <Button content={'Cerrar sesión'} functional={close} styles={'close'}/>
                     </div>
