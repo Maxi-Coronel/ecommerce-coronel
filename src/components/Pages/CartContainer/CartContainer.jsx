@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../Common/Button/Button';
 import CartVoid from './CartVoid/CartVoid';
 import CartItem from './Cart/CartItem';
-import { sendOrder } from '../../../Services/firebase';
+import { sendOrder, updateStock } from '../../../Services/firebase';
 import CartContext from '../../../Context/CartContext';
 import UserContext from '../../../Context/UserContext';
 
@@ -27,6 +27,7 @@ const CartContainer = () => {
     const cargarOrden = (user) => {
       sendOrder(user, cartCtx.products, cartCtx.totalPrice(), date);
       
+      updateStock(cartCtx.products)
       cartCtx.clear();
     }
 
@@ -37,15 +38,15 @@ const CartContainer = () => {
     return (
         cartCtx.products.length > 0
           ? <div className='cart'>
-            {cartCtx.products.map(item => <CartItem key={item.id} item={item}/>)}
-            <div>
-                <p>Total: ${cartCtx.totalPrice()}</p>
+              {cartCtx.products.map(item => <CartItem key={item.id} item={item}/>)}
+              <div>
+                  <p>Total: ${cartCtx.totalPrice()}</p>
+              </div>
+              <div className='flex'>
+                <Link to={link}><Button functional={corroborarSesion} content='Comprar' styles={'button'}/></Link>
+                <Button functional={cartCtx.clear} content={'Borrar Carrito'} styles={'close'}/>
+              </div>
             </div>
-            <div className='flex'>
-              <Link to={link}><Button functional={corroborarSesion} content='Comprar' styles={'button'}/></Link>
-              <Button functional={cartCtx.clear} content={'Borrar Carrito'} styles={'close'}/>
-            </div>
-          </div>
           : <CartVoid />
     );
 };

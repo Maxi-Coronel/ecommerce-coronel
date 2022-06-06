@@ -1,5 +1,15 @@
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, where, setDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+  setDoc
+} from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAQ0eQ1xpv1N0a6NmI9Fec_hCr5XaXtCRg",
@@ -13,7 +23,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Desición de lista completa o filtrada
 export const getCollection = async(collections, filter, valueFilter) => {
   let collect = collection(db, collections);
   if (valueFilter) {
@@ -24,32 +33,18 @@ export const getCollection = async(collections, filter, valueFilter) => {
   return collectionList;
 }
 
-// Obtenga un producto de su base de datos
-export const getById = async(id, collection) => {
-  const objectById = doc(db, collection, id);
+export const getById = async(id, collect) => {
+  const objectById = doc(db, collect, id);
   const objectSnapshot = await getDoc(objectById)
   return objectSnapshot.data()
 }
 
-// Cargue nuevos Item desde un Array a su base de datos
-export const dataToFirebase = (array) => {
-  array.forEach(item => {
-    const newItem = doc(collection(db, "categories"));
-    setDoc(newItem, item)
+export const updateStock = async(productList) => {
+  productList.map(item => {
+    return setDoc(doc(db, 'products', item.id), {stock:item.stock - item.quantity}, { merge: true })
   });
 }
 
-// Poner el id del documento dentro de él
-export const actualizar = async() => {
-  const productsCol = collection(db, 'products');
-  const productSnapshot = await getDocs(productsCol);
-  const productList = productSnapshot.docs;
-  productList.map(i => {
-    return setDoc(doc(db, "products", i.id), {id:i.id}, { merge: true })
-  });
-}
-
-// Agregar una nueva orden
 export const sendOrder = async(user, array, total, date) => {
   await addDoc(collection(db, "orders"), {
     user: user,
@@ -59,7 +54,6 @@ export const sendOrder = async(user, array, total, date) => {
   });
 }
 
-// Agregar un nuevo usuario
 export const sendUser = async(user, id) => {
   const collectionRef = collection(db, "users");
   await setDoc(doc(collectionRef, id), {
