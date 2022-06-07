@@ -1,31 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { getCollection } from '../../../Services/firebase';
 import UserContext from '../../../Context/UserContext';
 import Loading from '../../Common/Loading/Loading';
 import Order from './Order/Order';
 import './OrdersContainer.css'
 
 const OrdersContainer = () => {
-    const [orders, setOrders] = useState()
     const [loading, setLoading] = useState(true)
     const userCtx = useContext(UserContext)
-    const collec = 'orders'
-    const filter = 'user'
-    const users = userCtx.user
-    
+    const [orders, setOrders] = useState()
+
     useEffect(() => {
-        getCollection(collec, filter, users)
-            .then(res => {
-                setOrders(res.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0)))
-            })
-            .catch(err => alert(`error en promise`))
-            .finally(() => setLoading(false))
-      },[users]);
+        setOrders(userCtx.orders)
+        setLoading(false)
+    },[userCtx.orders])
 
     return (
         <div className='cart orders'>
             {!loading
-            ? orders.map((order, key) => <Order key={key} orde={order}/>)
+            ? orders?.map((order, key) => <Order key={key} orde={order}/>)
             : <Loading />}
         </div>
     );

@@ -26,8 +26,8 @@ const CartContainer = () => {
 
     const cargarOrden = (user) => {
       sendOrder(user, cartCtx.products, cartCtx.totalPrice(), date);
-      
       updateStock(cartCtx.products)
+      userCtx.getOrders()
       cartCtx.clear();
     }
 

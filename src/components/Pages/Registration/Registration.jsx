@@ -31,6 +31,7 @@ const Registration = () => {
     useEffect(() => {
         setUser(userCtx.user)
         setLoading(false)
+        userCtx.getOrders()
     },[userCtx.user])
 
     useEffect(() => {
@@ -95,7 +96,7 @@ const Registration = () => {
                     </div>
                     <div className='flex '>
                         <Link to={link.link}><Button content={link.text} styles={'button'}/></Link>
-                        <Link to='/compras'><Button content='Ver compras' styles={'button'}/></Link>
+                        {userCtx.orders.length !== 0 && <Link to='/compras'><Button content='Ver compras' styles={'button'}/></Link>}
                         <Button content={'Cerrar sesión'} functional={close} styles={'close'}/>
                     </div>
                 </div>
