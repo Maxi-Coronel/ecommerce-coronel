@@ -15,7 +15,9 @@ Los componentes estan separados en las carpetas Common (donde estan los componen
     -ItemCount
     -Loading
     -Modal
+    
 - Pages
+    -
     -CartContainer
     -CartFinished
     -Error
