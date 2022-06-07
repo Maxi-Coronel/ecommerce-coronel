@@ -4,17 +4,25 @@ El proyecto aun esta un desarrollo, pero la idea es poder finalizarlo con una ti
 
 ## Components
 
-Los componentes estan separados en carpetas:
+Los componentes estan separados en las carpetas Common (donde estan los componentes comunes para mi app), Pages (donde estan todas las páginas de mi app) y luego el Navbar y Footer:
 
 ### Componentes anidados
 
 - Common
     -
     -Button
-- ItemListContainer
-    -
-    -ItemList
-    --Item
+    -Form
+    -ItemCount
+    -Loading
+    -Modal
+- Pages
+    -CartContainer
+    -CartFinished
+    -Error
+    -ItemDetailContainer
+    -ItemListContainer
+    -OrdersContainer
+    -Registration
 - NavBar
     -
     -CartWidget
