@@ -4,14 +4,13 @@ El proyecto aun esta un desarrollo, pero la idea es poder finalizarlo con una ti
 
 ## Components
 
-Los componentes los tengo separados cada uno con su carpeta, estan anidados tal como se usan en el proyecto.
-Componentes de uso único:
+Los componentes estan separados en carpetas:
 
 ### Componentes anidados
 
-- ItemDetailContainer
+- Common
     -
-    ItemDetail
+    -Button
 - ItemListContainer
     -
     -ItemList
