@@ -11,6 +11,7 @@ Los componentes estan separados en las carpetas Common (donde estan los componen
 - Common
     -
     -Button
+    -
     -Form
     -ItemCount
     -Loading
@@ -19,6 +20,7 @@ Los componentes estan separados en las carpetas Common (donde estan los componen
 - Pages
     -
     -CartContainer
+    -
     -CartFinished
     -Error
     -ItemDetailContainer
