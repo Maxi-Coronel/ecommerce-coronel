@@ -13,19 +13,29 @@ Los componentes estan separados en las carpetas Common (donde estan los componen
     -Button
     -
     -Form
+    -
     -ItemCount
+    -
     -Loading
+    -
     -Modal
     
 - Pages
     -
     -CartContainer
     -
+    --Cart
+    --CartVoid
     -CartFinished
+    -
     -Error
+    -
     -ItemDetailContainer
+    -
     -ItemListContainer
+    -
     -OrdersContainer
+    -
     -Registration
 - NavBar
     -
