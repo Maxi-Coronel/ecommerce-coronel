@@ -9,7 +9,6 @@ import Loading from '../../Common/Loading/Loading';
 import Modal from '../../Common/Modal/Modal';
 
 const ItemDetailContainer = () => {
-
     const cartCtx = useContext(CartContext)
     const [item, setItem] = useState()
     const [loading, setLoading] = useState(true)

@@ -7,7 +7,6 @@ import Categories from './Categories/Categories';
 import './NavBar.css';
 
 const NavBar = () => {
-    
     const collec = 'categories'
     const [categories, setCategories] = useState([]);
     

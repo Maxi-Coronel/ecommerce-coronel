@@ -3,7 +3,6 @@ import Button from '../Button/Button';
 import './ItemCount.css'
 
 const ItemCount = ({stock, initial, onAdd}) => {
-
     const [count, setCount] = useState(initial)
 
     const handlerAdd = () => {

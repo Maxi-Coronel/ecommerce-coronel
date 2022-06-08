@@ -3,7 +3,6 @@ import './FormCreate.css'
 import Input from '../Input';
 
 const FormCreate = ({ functional, modal }) => {
-    
     const dates = (event) => {
         event.preventDefault()
         const name = document.querySelector('#name').value

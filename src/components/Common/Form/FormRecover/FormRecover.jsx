@@ -4,7 +4,6 @@ import Button from '../../Button/Button';
 import Input from '../Input';
 
 const FormRecover = ({ modal }) => {
-
     const collec = 'users'
 
     const checkUser = (event) => {

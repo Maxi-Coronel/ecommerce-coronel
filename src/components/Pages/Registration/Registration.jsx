@@ -25,6 +25,7 @@ const Registration = () => {
         content: "",
         isOpen: false
     });
+    
     const closeModal = () => setIsModal({isOpen: false})
     const collec = 'users'
 

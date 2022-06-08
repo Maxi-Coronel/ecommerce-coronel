@@ -4,7 +4,6 @@ import FormRecover from '../FormRecover/FormRecover';
 import Input from '../Input';
 
 const FormSesion = ({ functional, modal }) => {
-
     const dates = (event) => {
         event.preventDefault()
         const mail = document.querySelector('#mailSesion').value
