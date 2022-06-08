@@ -4,64 +4,78 @@ El proyecto aun esta un desarrollo, pero la idea es poder finalizarlo con una ti
 
 ## Components
 
-Los componentes estan separados en las carpetas Common (donde estan los componentes comunes para mi app), Pages (donde estan todas las páginas de mi app) y luego el Navbar y Footer:
+Los componentes estan separados en las carpetas Common (donde estan los componentes comunes para mi app), Pages (donde estan todas las páginas de mi app), luego el Navbar y Footer:
 
-### Componentes anidados
+#### Common
 
-- Common
-    -
-    -Button
-    -
-    -Form
-    -
-    -ItemCount
-    -
-    -Loading
-    -
-    -Modal
-    -
+| Button    |
+| :-------- |
+
+| Form       |
+| :--------- |
+| FormCreate |
+| FormRecover|
+| FormSesion |
+
+| ItemCount |
+| :-------- |
+
+| Loading   |
+| :-------- |
+
+| Modal     |
+| :-------- |
     
-- Pages
-    -
-    -CartContainer
-    -
-    --Cart
-    --CartVoid
-    -CartFinished
-    -
-    -Error
-    -
-    -ItemDetailContainer
-    -
-    -ItemListContainer
-    -
-    -OrdersContainer
-    -
-    -Registration
-- NavBar
-    -
-    -CartWidget
-    -Categories
-- CartContainer
-    -
-- Footer
-    -
+#### Pages
+
+| CartContainer|
+| :----------- |
+| Cart         |
+| CartVoid     |
+
+| CartFinished |
+| :----------- |
+
+| Error     |
+| :-------- |
+
+| ItemDetailContainer   |
+| :-------- |
+| ItemDetail         |
+
+| ItemListContainer|      |
+| :--------------- | :--- |
+| ItemList         | Item |
+
+| OrdersContainer   |
+| :-------- |
+| Order         |
+
+| Registration   |
+| :-------- |
+
+#### Navbar
+
+| Categories |
+| :----------- |
+
+| Widget |
+| :----------- |
+
+#### Footer
 
 Las Categories se exportan desde firebase a un array de objetos con cada categoria con su link, que luego uso para mapearlas un mi NavBar.
 
 
-### Componentes usados a lo largo del proyecto
+## Context
 
-- Button
+- CartContext
     -
-- ItemCount
+Archivo que maneja el Carrito de la app
+
+- UserContext
     -
-- Loading
-    -
-- Error
-    -
-- Form
-    -
+Archivo que maneja el usuario al iniciar sesión
 
 ## Services
 
@@ -70,10 +84,12 @@ Dentro de Services se encuentra la carpeta firebase donde esta el archivo index.
 ## Navegabilidad
 
 Cada ruta fue por requerimiento y buscan ser explícitas para brindar una buena UX.
-Se basa en 3 páginas antes mencionadas, cada una con sus parametros de filtro, se puede pasar de una a otra sin tener que recargar.
-El Home muestra el catalogo completo de productos, en el cual luego se puede filtrar por categorias desde el Navbar.
-Detail muestra los detalles del producto seleccionado con la posibilidad de agregar tal producto al carrito, e ir hacia su página. De mostrar un error en la Url del producto se mostrara una pantalla de Error con la opción de dirigirse a otros productos del catalogo.
-Por último esta el Cart donde se accede desde la card del producto o desde el Navbar, una vez que se haya agregado algun producto al carrito, desde esta página se accesede al Formulario para cargar datos y poder realizar la compra. Una vez finalizada la compra, en pantalla se mostrara que se ha realizado con éxito y en ella un boton para poder volver al Home
+Se basa en 7 páginas antes mencionadas, cada una con sus parametros, se puede pasar de una a otra sin tener que recargar la app.
+Home muestra el catalogo completo de productos, en el cual luego se puede filtrar por categorias desde el Navbar.
+Detail muestra los detalles del producto seleccionado con la posibilidad de agregar tal producto al carrito, e ir hacia su página. De mostrar un error en la Url del producto se mostrara una página de Error con la opción de dirigirse a otros productos del catalogo.
+Registration, una de las pantallas más importantes de la app, donde se podra crear una nueva cuenta o iniciar sesión si ya se cuenta con una.
+Cart donde se accede desde la card del producto o desde el Navbar, una vez que se haya agregado algun producto al carrito.
+Una vez finalizada la compra, se mostrara CartFinished haciendo saber que se ha realizado con éxito y en ella dos botones, uno para poder volver al Home y otro para ver una nueva página donde se muestra el listado de órdenes realizadas por el usuario, ordenadas desde la mas reciente
 
 ![image](https://github.com/Maxi-Coronel/ecommerce-coronel/blob/main/Navegation.gif)
 

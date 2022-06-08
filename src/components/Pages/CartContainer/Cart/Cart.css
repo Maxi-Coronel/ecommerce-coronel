@@ -1,27 +1,12 @@
-.cart{
-    display: flex;
-        flex-direction: column;
-        align-items: center;
-    background-color: white;
-    margin: 17px 5%;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 1px 2px 5px black;
-}
-
-.cart .flex{
+.cart-button{
     width: 50%;
     display: flex;
         justify-content: space-around;
 }
 
-.cart .flex .button{
+.cart-button .button{
     padding: 5px 24.1795px;
     align-items: center;
-}
-
-.cart b{
-    font-size: xx-large;
 }
 
 .p-void{
@@ -29,6 +14,10 @@
     text-align: center;
     background-color: white;
     color: gray;
+}
+
+.p-void b{
+    font-size: xx-large;
 }
 
 .cart-item{

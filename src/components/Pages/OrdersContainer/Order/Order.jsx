@@ -1,9 +1,10 @@
 import React from 'react';
+import './Order.css'
 
 const Order = ({ orde }) => {
     const {date, order, total} = orde
     return (
-            <div className='order'>
+            <div className='order margin-item'>
                 <h4>{date}</h4>
                 {order.map((item, key) =>  
                     <div key={key} className='cart-item'>

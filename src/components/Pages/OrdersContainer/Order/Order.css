@@ -1,0 +1,12 @@
+.order{
+    text-align: center;
+    padding: 15px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    width: 88%;
+}
+
+.total{
+    margin: 15px;
+    font-size: 35px;
+}

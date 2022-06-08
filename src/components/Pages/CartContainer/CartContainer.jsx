@@ -37,12 +37,12 @@ const CartContainer = () => {
 
     return (
         cartCtx.products.length > 0
-          ? <div className='cart'>
+          ? <div className='flex-center div-container'>
               {cartCtx.products.map(item => <CartItem key={item.id} item={item}/>)}
               <div>
                   <p>Total: ${cartCtx.totalPrice()}</p>
               </div>
-              <div className='flex'>
+              <div className='cart-button'>
                 <Link to={link}><Button functional={corroborarSesion} content='Comprar' styles={'button'}/></Link>
                 <Button functional={cartCtx.clear} content={'Borrar Carrito'} styles={'close'}/>
               </div>

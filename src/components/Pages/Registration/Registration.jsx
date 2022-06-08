@@ -81,20 +81,20 @@ const Registration = () => {
 
     return (
         Object.keys(userCtx.user).length === 0
-            ? <div className='cart'>
+            ? <div className='flex-center div-container'>
                 <FormSesion functional={getUser} modal={setIsModal} />
                 <FormCreate functional={loadUser} modal={setIsModal} />
                 <Modal title={isModal.title} content={isModal.content} isOpen={isModal.isOpen} closeModal={closeModal} />
             </div>
             : !loading
-                ? <div className='cart'>
+                ? <div className='flex-center div-container'>
                     <div>
                         <h2>Usuario</h2>
                         <h4>Nombre: {user.name}</h4>
                         <h4>Apellido: {user.surname}</h4>
                         <h4>Email: {user.mail}</h4>
                     </div>
-                    <div className='flex '>
+                    <div className='cart-button'>
                         <Link to={link.link}><Button content={link.text} styles={'button'}/></Link>
                         {userCtx.orders.length !== 0 && <Link to='/compras'><Button content='Ver compras' styles={'button'}/></Link>}
                         <Button content={'Cerrar sesión'} functional={close} styles={'close'}/>
