@@ -91,7 +91,7 @@ Registration, una de las pantallas más importantes de la app, donde se podra cr
 Cart donde se accede desde la card del producto o desde el Navbar, una vez que se haya agregado algun producto al carrito.
 Una vez finalizada la compra, se mostrara CartFinished haciendo saber que se ha realizado con éxito y en ella dos botones, uno para poder volver al Home y otro para ver una nueva página donde se muestra el listado de órdenes realizadas por el usuario, ordenadas desde la mas reciente
 
-![image](https://github.com/Maxi-Coronel/ecommerce-coronel/blob/main/Navegation.gif)
+![image](https://github.com/Maxi-Coronel/ecommerce-coronel/blob/main/navegation-video.gif)
 
 ## Imágenes y estilos
 
